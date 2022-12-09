@@ -2,17 +2,19 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema({
-  thoughtText: {
+  country: {
     type: String,
-    required: 'You need to leave a thought!',
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
+    required: true,
   },
-  thoughtAuthor: {
+  User: [userSchema],
+  city: {
     type: String,
     required: true,
     trim: true,
+  },
+  image: {
+    type: String,
+   //api ??
   },
   createdAt: {
     type: Date,
@@ -22,16 +24,18 @@ const postSchema = new Schema({
   comments: [
     {
       commentText: {
-        type: String,
+        type: Text,
         required: true,
         minlength: 1,
         maxlength: 280,
       },
+      Post: [postSchema],
       createdAt: {
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
+      username: [userSchema],
     },
   ],
   reactions: [
@@ -45,6 +49,9 @@ const postSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
+      username: [userSchema],
+      Post: [postSchema],
+     
     },
   ],
 });
