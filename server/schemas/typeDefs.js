@@ -1,38 +1,58 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type School {
+  type User {
     _id: ID
-    name: String
-    location: String
-    studentCount: Int
-    classes: [Class]
+    firstName: String
+    lasName: String
+    username: String
+    email:String
+    password: String
+    following: [User]
+    follwers: [User]
+    posts: [Post]!
   }
 
-  type Class {
+  type Post {
     _id: ID
-    name: String
-    building: String
-    creditHours: Int
-    professor: Professor
+    userId: ID
+    country: String
+    city: String
+    comments: [Comment]!
+    reactions: [Reaction]!
+    createdAt: String
+
   }
 
-  # TODO: Update type definition to include classes
-  type Professor {
+  type Comment {
     _id: ID
-    name: String
-    officeHours: String
-    officeLocation: String
-    studentScore: Float
-    classes: [Class]
+    userId: ID
+    username: String
+    content: String
+    createdAt: String
+  }
 
+  type Reaction {
+    _id: ID
+    userId: ID
+    username: String
+    type: String
+    createdAt: String
+    
   }
 
   type Query {
-    schools: [School]
-    classes: [Class]
-    professors: [Professor]
+    users: [User]
+    user(username: String!): User
+    posts(userId: ID): [Post]
+    comments(postId: ID): [Comment]
+    reactions(postId: ID): [Reaction]
+    me: User
   }
+
+  // type Mutation {
+ 
+  // }
 `;
 
 module.exports = typeDefs;
