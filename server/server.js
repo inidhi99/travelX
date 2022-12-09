@@ -3,7 +3,7 @@ const express = require("express");
 const PORT = process.env.PORT || 4000;
 const app = express();
 
-if (process.env.NODE_ENV === "producion"){
+if (process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname,"../client/build")));
 }
 
