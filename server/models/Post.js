@@ -34,7 +34,19 @@ const postSchema = new Schema({
       },
     },
   ],
- 
+  reactions: [
+    {
+      reactionType: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
+    },
+  ],
 });
 
 const Post = model('Post', postSchema);
