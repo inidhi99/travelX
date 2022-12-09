@@ -1,0 +1,23 @@
+{
+  "name": "programming-thoughts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && npm start",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run watch",
+    "dev:client": "cd client && npm run dev",
+    "install": "npm run install:server && npm run install:client",
+    "install:server": "cd server && npm i",
+    "install:client": "cd client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
