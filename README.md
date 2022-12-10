@@ -24,6 +24,8 @@ Our application also provides a user to user sharing experience within our app v
 
 ## Screenshots
 <!-- add wireframing and UI UX designs -->
+![iPhone SE - profile](https://user-images.githubusercontent.com/111817163/206824172-e36a0fac-f250-4a77-a4e2-5ca786ea8503.png)
+![models](https://user-images.githubusercontent.com/111817163/206824175-7c336e7d-e37b-4e2d-a2cb-a9f6cc885813.png)
 
 ## Installation
  - This repo requires you to install Node.js. Visit their website to read the installation process and documentation in order to properly install applications on your system. 
