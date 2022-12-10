@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const QUERY_USERS = gql`
   query allUsers {
-    profiles {
+    users {
       _id
       firstName
       lasName
@@ -84,10 +84,10 @@ export const QUERY_REACTIONS = gql`
   query allReactions {
     reactions {
       _id
-      userId: ID
-    username: String
-    type: String
-    createdAt: String
+      userId
+      username
+      type
+      createdAt
     }
   }
 `;
