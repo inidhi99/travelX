@@ -22,7 +22,8 @@ TravelX was created to assist the person with a busy lifestyle find the best pri
 
 Our application also provides a user to user sharing experience within our app via photos. Our users can also leave reviews on there personal profiles for other customers. Other features of our application include suggestions for things to do in the area where a user is currently staying. TravelX is here to help save you money travel and have a good time!
 
-
+## Screenshots
+<!-- add wireframing and UI UX designs -->
 ## Installation
 
 
