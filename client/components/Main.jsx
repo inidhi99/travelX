@@ -1,4 +1,9 @@
-import { Form, FormGroup, FormControl } from "react-bootstrap";
+import { 
+  Button,
+  Col, 
+  Form, 
+  FormGroup, 
+  FormControl } from "react-bootstrap";
 
 function Main() {
   return (
@@ -6,7 +11,7 @@ function Main() {
       <h2> Create a profile !</h2>
       <Form horizontal>
         <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
+          <Col componentClass='' sm={2}>
             Email
           </Col>
           <Col sm={10}>
@@ -15,7 +20,7 @@ function Main() {
         </FormGroup>
 
         <FormGroup controlId="formHorizontalPassword">
-          <Col componentClass={ControlLabel} sm={2}>
+          <Col componentClass='' sm={2}>
             Password
           </Col>
           <Col sm={10}>
@@ -25,7 +30,7 @@ function Main() {
 
         <FormGroup>
           <Col smOffset={2} sm={10}>
-            <Checkbox>Remember me</Checkbox>
+            {/* <Checkbox>Remember me</Checkbox> */}
           </Col>
         </FormGroup>
 

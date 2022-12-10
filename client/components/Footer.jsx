@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 function Footer() {
   return (
     <>
-      <footer>
         <Navbar bg="primary" variant="dark" fixed="bottom">
           <Container>
             <Nav className="me-auto">
@@ -15,7 +14,6 @@ function Footer() {
             </Nav>
           </Container>
         </Navbar>
-      </footer>
     </>
   );
 }

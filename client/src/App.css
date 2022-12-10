@@ -13,10 +13,6 @@
   text-align: center;
 }
 
-.mainSection {
-  background: var(--gradient);
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
