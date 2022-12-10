@@ -42,3 +42,34 @@ export const QUERY_ME = gql`
   }
 `;
 
+export const QUERY_POSTS = gql`
+  query allPosts {
+    posts {
+      _id
+      userId: ID
+    country: String
+    city: String
+    comments: [Comment]!
+    reactions: [Reaction]!
+    createdAt: String
+    }
+  }
+`;
+
+export const QUERY_SINGLE_POST = gql`
+  query singlePost($postId: ID!) {
+    post(postId: $postId) {
+      _id
+      name
+      skills
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      name
+      skills
+    }
