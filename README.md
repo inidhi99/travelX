@@ -6,8 +6,14 @@
 *  [![Stripe][Stripe.com]][Stripe-url]
 
 # TravelX
-
+<!-- Add app logo here -->
 ## Description
+TravelX was created to assist the person with a busy lifestyle find the best prices in flights and hotels when traveling wheter its for vacation, business, or a quick weekend getaway. Our goal is to provide a one stop shop for users without having to compare prices using multiple different websites or apps. As developers of this application we we're motivated in solving problems which eveyday travelers face while engaging in travel research. TravelX offers the solution to travel planning inconveniences by providing pricing data for flight, hotel, and rental accomodations around the world. 
+
+
+
+
+
 
 ## Installation
 
