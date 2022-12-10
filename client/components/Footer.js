@@ -9,9 +9,9 @@ function Footer() {
         <Navbar bg="primary" variant="dark" fixed="bottom">
           <Container>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Explore</Nav.Link>
-              <Nav.Link href="#features">Add Pciture</Nav.Link>
-              <Nav.Link href="#pricing">Pofile</Nav.Link>
+              <Nav.Link href="#Explore">Explore</Nav.Link>
+              <Nav.Link href="#add event">Document Trip</Nav.Link>
+              <Nav.Link href="#profile">Pofile</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
