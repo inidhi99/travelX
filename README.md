@@ -34,8 +34,12 @@ Our application also provides a user to user sharing experience within our app v
 
 
 ## License
+none
 
-## Contributors
+## Questions
+Feel free to contact any of the contributors of this project via github profiles to the right.
+
+## Credits
 * Bria
 * Evince Edouard
 * Igor Korman
