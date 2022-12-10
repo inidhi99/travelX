@@ -83,3 +83,38 @@ export const QUERY_ME = gql`
     }
   }
 `;
+export const QUERY_COMMENTS = gql`
+  query allComments {
+    comments {
+      _id
+      userId
+      username
+      content
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_SINGLE_COMMENT = gql`
+  query singleComment($commentId: ID!) {
+    comment(commentId: $commentId) {
+      _id
+      userId
+      username
+      content
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      userId
+      username
+      content
+      createdAt
+    }
+  }
+`;
