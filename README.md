@@ -24,8 +24,11 @@ Our application also provides a user to user sharing experience within our app v
 
 ## Screenshots
 <!-- add wireframing and UI UX designs -->
-## Installation
 
+## Installation
+ - This repo requires you to install Node.js. Visit their website to read the installation process and documentation in order to properly install applications on your system. 
+ - Clone the Github SSH or HTTPS link by clicking the (GREEN) code button in our Repo.
+- Please perform a npm i inside your terminal within the root of your repo folder to ensure all packages are installed. 
 
 ## Usage
 
