@@ -3,7 +3,7 @@ import Jumbotron from "react-bootstrap";
 function Header() {
   return (
     <>
-      <Jumbotron className="header" styler={{ backgroundcolor: "lightblue" }}>
+      <Jumbotron className="header" styler={{ background:"solid grey" }}>
         <h1 className="headerName" style={{ align: "center", color: "white" }}>
           TravelX
         </h1>

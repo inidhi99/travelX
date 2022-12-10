@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+.mainSection {
+  background: linear-gradient(
+    180deg,
+    #00d1ff 38.02%,
+    rgba(0, 102, 255, 0.75) 95.83%
+  );
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
