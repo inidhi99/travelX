@@ -7,7 +7,7 @@ import React from 'react';
 // date
 // comments
 // reactions
-function Post() {
+const Post = () => {
   return <p>This is the post page</p>;
-}
+};
 export default Post;
