@@ -16,6 +16,8 @@ const typeDefs = gql`
   type Post {
     _id: ID
     userId: ID
+    postText: String
+    postAuthor: String
     country: String
     city: String
     comments: [Comment]!
@@ -28,6 +30,8 @@ const typeDefs = gql`
     _id: ID
     userId: ID
     username: String
+    commentText: String
+    commentAuthor: String
     content: String
     createdAt: String
   }
@@ -50,9 +54,16 @@ const typeDefs = gql`
     me: User
   }
 
-  // type Mutation {
- 
-  // }
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addPost(postText: String!): Post
+    addComment(postId: ID!, commentText: String!): Post
+    addReaction(postId: ID!,): Post
+    removePost(postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Post
+    removeReaction (postId: ID!): Post
+  }
 `;
 
 module.exports = typeDefs;
