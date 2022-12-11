@@ -1,9 +1,9 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+// import reactLogo from "./assets/react.svg";
 import "./App.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Main from "../components/Main";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
