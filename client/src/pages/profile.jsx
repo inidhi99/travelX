@@ -32,4 +32,20 @@ const Profile = () => {
           </h4>
         );
       };
+
+      return (
+        <div>
+            <div className="flex-row justify-center mb-3">
+                {/* username header */}
+                <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+                    {`${user.username}`}
+                </h2>
+                {/* profile picture */}
+                {/* posts */}
+                <p>Posts coming soon!</p>
+            </div>
+        </div>
+      );
     };
+    
+    export default Profile;
