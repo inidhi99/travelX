@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 // Search photo
 // add description
@@ -9,6 +10,17 @@ import Image from 'react-bootstrap/Image';
 // comments
 // reactions
 const Post = () => {
-  return <p>This is the post page</p>;
+  return (
+    <>
+      <p>This is the post page</p>
+      <>
+        <InputGroup size="lg">
+          <InputGroup.Text>Write a caption...</InputGroup.Text>
+          <Form.Control as="textarea" aria-label="With textarea" />
+        </InputGroup>
+        ;
+      </>
+    </>
+  );
 };
 export default Post;

@@ -12,6 +12,7 @@ function Footer() {
             <Nav.Link href="#Explore">Explore</Nav.Link>
             <Nav.Link href="#add event">Document Trip</Nav.Link>
             <Nav.Link href="#profile">Pofile</Nav.Link>
+            {/* Temporary */}
             <Link className="linkStyles" to="./pages/post">
               Post
             </Link>
