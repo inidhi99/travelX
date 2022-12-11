@@ -1,3 +1,11 @@
+:root {
+  --gradient: linear-gradient(
+    180deg,
+    #00d1ff 38.02%,
+    rgba(0, 102, 255, 0.75) 95.83%
+  );
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
