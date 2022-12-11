@@ -40,7 +40,6 @@ function Main() {
           </Col>
         </FormGroup>
       </Form>
-      ;
     </>
   );
 }
