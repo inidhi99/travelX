@@ -3,7 +3,7 @@ import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import {  } from '../utils/mutations';
-import { QUERY_SINGLE_USER, QUERY_ME, QUERY_POSTS } from '../utils/queries';
+import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
     const { username: userParam } = userParams();
