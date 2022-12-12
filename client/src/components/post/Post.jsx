@@ -17,16 +17,17 @@ function SinglePost(post) {
 
     return (
         <div className="card px-1 py-1">
-                <h5>{city}</h5>
-                <h3>{country}</h3>
-                <h1>Title of Post Goes Here</h1>
-                <p>User</p>
-                <p>{createdAt}</p>
-                {/* image goes here */}
-                <p>{reactions}</p>
-                {/* description goes here once property in Post model is created */}
-                <p>{comments}</p>
-
+            <h5>{city}</h5>
+            <h3>{country}</h3>
+            <h1>Title of Post Goes Here</h1>
+            <Link to={`/${User}`}>
+                <p>{User}</p>
+            </Link>
+            <p>{createdAt}</p>
+            {/* image goes here */}
+            <p>{reactions}</p>
+            {/* description goes here once property in Post model is created */}
+            <p>{comments}</p>
         </div>
     )
 };
