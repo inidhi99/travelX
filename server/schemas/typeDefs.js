@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String
     lasName: String
     username: String
-    email:String
+    email: String
     password: String
     following: [User]
     follwers: [User]
@@ -15,15 +15,14 @@ const typeDefs = gql`
 
   type Post {
     _id: ID
-    userId: ID
-    postText: String
-    postAuthor: String
+    userId: String
+    username: String
+    title: String
+    body: String
     country: String
     city: String
     comments: [Comment]!
     reactions: [Reaction]!
-    createdAt: String
-
   }
 
   type Comment {
@@ -31,7 +30,6 @@ const typeDefs = gql`
     userId: ID
     username: String
     commentText: String
-    commentAuthor: String
     content: String
     createdAt: String
   }
@@ -42,13 +40,18 @@ const typeDefs = gql`
     username: String
     type: String
     createdAt: String
-    
+  }
+
+  type Auth {
+    token: ID
+    user: User
   }
 
   type Query {
     users: [User]
     user(username: String!): User
-    posts(userId: ID): [Post]
+    posts: [Post]
+    myPosts(userId: ID): [Post]
     comments(postId: ID): [Comment]
     reactions(postId: ID): [Reaction]
     me: User
@@ -61,8 +64,8 @@ const typeDefs = gql`
     addComment(postId: ID!, commentText: String!): Post
     addReaction(postId: ID!): Post
     removePost(postId: ID!): Post
-    removeComment(postId: ID! commentId: ID!): Post
-    removeReaction (postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Post
+    removeReaction(postId: ID!): Post
   }
 `;
 
