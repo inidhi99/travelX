@@ -1,40 +1,44 @@
-[
+export default [
     {
-        "commentText": "",
-        "User":"Brian Chen"
-    },
-    {
-        "commentText": "",
-        "User":"Max Alexander"
-    },
-    {
-        "commentText": "",
-        "User":"Edward Burrow "
-    },
-
-    {
-        "commentText": "",
-        "User":"David Thomas"
-    
-    },
-
-    {
-        "commentText": "",
-        "User":"Donald "
-    },
-
-    {
-        "commentText": "",
-        "User":""
-    },
-    {
-        "commentText": "",
-        "User":""
-    },
-    {
-        "commentText": "",
-        "User":""
+        country:"United Kingdom",
+        city:"London",
+        content: "I very much wanna visit this place",
     }
-    
 ]
+
+//     {
+//         "commentText": "Love it!!",
+        
+//     },
+//     {
+//         "commentText": "I very much wanna visit this place",
+//         "User":"Edward Burrow "
+//     },
+
+//     {
+//         "commentText": "Great shot man!!",
+        
+    
+//     },
+
+//     {
+//         "commentText": "Splendid view!!",
+        
+//     },
+
+//     {
+//         "commentText": "Keep posting, love  your adventures!!",
+        
+//     },
+//     {
+//         "commentText": "This is definetly my next destination!!",
+        
+//     },
+//     {
+//         "commentText": "",
+        
+//     }
+    
+// ]
+
 
