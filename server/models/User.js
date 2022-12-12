@@ -1,8 +1,5 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, SchemaType } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// import post schema
-const postSchema = require('./Post');
 
 const userSchema = new Schema(
   {
@@ -29,20 +26,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set the array of data that adheres to the userschema
-    following: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-      },
-    ],
-    followers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-      },
-    ],
-    posts: [postSchema],
+    // set the array of data that adheres to the userSchema
+    following: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    followers: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    posts: {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+    },
   },
   // set this to use virtual below
   {
