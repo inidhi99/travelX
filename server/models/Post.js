@@ -38,48 +38,8 @@ const postSchema = new Schema({
     default: Date.now,
     get: timestamp => dateFormat(timestamp),
   },
-  comments: [
-    {
-      userId: {
-        type: Schema.Types.ObjectId,
-      },
-      postId: {
-        type: Schema.Types.ObjectId,
-      },
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: timestamp => dateFormat(timestamp),
-      },
-      username: String,
-    },
-  ],
-  reactions: [
-    {
-      userId: {
-        type: Schema.Types.ObjectId,
-      },
-      postId: {
-        type: Schema.Types.ObjectId,
-      },
-      reactionType: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: timestamp => dateFormat(timestamp),
-      },
-      username: String,
-    },
-  ],
+  comments: [commentSchema],
+  reactions: [reactionSchema],
 });
 
 // Create a virtual property `commentCount` that gets the amount of comments per post

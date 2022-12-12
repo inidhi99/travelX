@@ -1,14 +1,14 @@
-const connection = require("../config/connection");
-const { User, Post } = require("../models");
-const posts = require("./postSeeds");
-const users = require("./userSeeds");
+const connection = require('../config/connection');
+const { User, Post, Comment, Reaction } = require('../models');
+const posts = require('./postSeeds');
+const users = require('./userSeeds');
 // const comment = require('./commentSeeds')
 // const reactions = require('./reactionSeeds')
 
-connection.on("error", (err) => err);
+connection.on('error', err => err);
 
-connection.once("open", async () => {
-  console.log("connected");
+connection.once('open', async () => {
+  console.log('connected');
   await Post.deleteMany({});
   await User.deleteMany({});
 
@@ -33,7 +33,7 @@ connection.once("open", async () => {
 
   const postsToInsert = [];
   // go through each post datum
-  posts.map(async (post) => {
+  posts.map(async post => {
     // get random user
     const randomIndex = Math.floor(Math.random() * createdUsers.length);
     const randomUser = createdUsers[randomIndex];
@@ -81,6 +81,6 @@ connection.once("open", async () => {
   // loop through the saved applications, for each application we need to generate a application response and insert the application responses
   console.log(createdUsers);
   console.log(createdPosts);
-  console.info("Seeding complete! 🌱");
+  console.info('Seeding complete! 🌱');
   process.exit(0);
 });
