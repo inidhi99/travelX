@@ -1,4 +1,7 @@
 import React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -67,33 +70,36 @@ const itemData = [
 const PostForm = () => {
   return (
     <>
-      {/* Image list  */}
-      <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img
-              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.title}
-              loading="lazy"
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
-      {/* Input Form */}
-      <FormControl sx={{ width: '25ch' }}>
-        <TextField
-          id="standard-basic"
-          label="Add Description"
-          variant="standard"
-        />
+      <CssBaseline />
+      <Container maxWidth="sm">
+        {/* Image list  */}
+        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+        {/* Input Form */}
+        <FormControl sx={{ width: '25ch' }}>
+          <TextField
+            id="standard-basic"
+            label="Add Description"
+            variant="standard"
+          />
 
-        <TextField
-          id="standard-basic"
-          label="Add Location"
-          variant="standard"
-        />
-      </FormControl>
+          <TextField
+            id="standard-basic"
+            label="Add Location"
+            variant="standard"
+          />
+        </FormControl>
+      </Container>
     </>
   );
 };
