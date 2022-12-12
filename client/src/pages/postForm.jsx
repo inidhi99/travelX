@@ -1,11 +1,7 @@
 import React from 'react';
-import { Container, Form, InputGroup, Image } from 'react-bootstrap';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
+import { Container, Form, InputGroup, Image } from 'react-bootstrap';
+import TextField from '@mui/material/TextField';
 // Upload photo
 // add description
 // add location - country city
@@ -18,7 +14,12 @@ const PostForm = () => {
   return (
     <>
       <p>This is the post page</p>
+
       <Container>
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        <TextField id="filled-basic" label="Filled" variant="filled" />
+        <TextField id="standard-basic" label="Standard" variant="standard" />
+
         <div style={{ display: 'block', width: 700, padding: 30 }}>
           <h4>Image Goes Below</h4>
           <Image
