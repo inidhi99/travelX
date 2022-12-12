@@ -1,12 +1,12 @@
-import React from "react";
+// import React from "react";
 
 
-const Explore = () => {
-  return (
-    <div className="container">
+// const Explore = () => {
+//   return (
+//     <div className="container">
      
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
-export default Explore;
+// export default Explore;

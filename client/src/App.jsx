@@ -2,15 +2,12 @@ import { useState } from 'react';
 import './App.css';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
-// import NavbarComponent from './components/navbar/NavbarComponent';
+import NavbarComponent from './components/navbar/NavbarComponent';
 import Main from './components/main/Main';
-// import PostForm from './pages/PostForm';
-import SignupForm from './pages/SignupForm';
-import LoginForm from './pages/LoginForm';
+import PostForm from './pages/PostForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Explore from './components/explore/explore';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,14 +20,9 @@ function App() {
         <Routes>
           <Route className="mainSection" path="/" element={<Main />} />
           <Route
-            className="LoginForm"
-            path="/pages/LoginForm"
-            element={<LoginForm />}
-          />
-          <Route
-            className="SignupForm"
-            path="/pages/SignupForm"
-            element={<SignupForm />}
+            className="postForm"
+            path="/pages/PostForm"
+            element={<PostForm />}
           />
         </Routes>
         <Footer />
@@ -38,5 +30,5 @@ function App() {
     </div>
   );
 }
-export default App;
 
+export default App;
