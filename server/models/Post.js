@@ -14,7 +14,7 @@ const postSchema = new Schema({
   body: {
     type: String,
     required: true,
-    minlength: 50,
+    minlength: 1,
     maxlength: 4096,
   },
   country: {
