@@ -6,7 +6,13 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
-  User: [userSchema],
+  content: {
+    type: String,
+    required: true,
+  },
+  userId: {
+    type: Schema.Types.ObjectId
+  },
   city: {
     type: String,
     required: true,
@@ -23,23 +29,34 @@ const postSchema = new Schema({
   },
   comments: [
     {
-      commentText: {
-        type: Text,
+      userId: {
+        type: Schema.Types.ObjectId
+      },
+      postId: {
+        type: Schema.Types.ObjectId
+      },
+      commentText: { 
+        type: String,
         required: true,
         minlength: 1,
         maxlength: 280,
       },
-      Post: [postSchema],
       createdAt: {
         type: Date,
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
-      username: [userSchema],
+      username: String,
     },
   ],
   reactions: [
     {
+      userId: {
+        type: Schema.Types.ObjectId
+      },
+      postId: {
+        type: Schema.Types.ObjectId
+      },
       reactionType: {
         type: String,
         required: true,
@@ -49,9 +66,7 @@ const postSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
-      username: [userSchema],
-      Post: [postSchema],
-     
+      username: String,     
     },
   ],
 });
