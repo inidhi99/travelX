@@ -6,7 +6,7 @@ import {  } from '../utils/mutations';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
-    const { username: userParam } = userParams();
+    const { username: userParam } = useParams();
 
     // if there is no username in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's informtaion
     const { loading, data } = useQuery(userParam ? QUERY_SINGLE_USER : QUERY_ME, {

@@ -11,14 +11,16 @@ const PostList = ({
     
     return (
     <div class="container">
-        <div class="row">
-            <div class="card bg-dark text-white">
-                <img src={Post.image} class="card-img" alt="post-image"/>
-                <div class="card-img-overlay">
-                    <h5 class="card-title">{Post.title}</h5>
+        <Link to={`/${Post.User}/posts/${_id}`}>
+            <div class="row">
+                <div class="card bg-dark text-white">
+                    <img src={Post.image} class="card-img" alt="post-image"/>
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{Post.title}</h5>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     </div>
     )
 };
