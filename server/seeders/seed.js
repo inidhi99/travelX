@@ -1,9 +1,10 @@
 const connection = require("../config/connection");
-const { User, Post } = require("../models");
+const { User, Post, Comment, Reaction } = require("../models");
 const posts = require("./postSeeds");
 const users = require("./userSeeds");
-// const comment = require('./commentSeeds')
-// const reactions = require('./reactionSeeds')
+const comments = require("./commentSeeds");
+const reactions = require("./reactionSeeds");
+// const { ObjectId } = require('')
 
 connection.on("error", (err) => err);
 
@@ -11,21 +12,6 @@ connection.once("open", async () => {
   console.log("connected");
   await Post.deleteMany({});
   await User.deleteMany({});
-
-  //   const users = [];
-  //   const applications = getRandomApplications(10);
-
-  //   for (let i = 0; i < 20; i++) {
-  //     const fullName = getRandomName();
-  //     const first = fullName.split(' ')[0];
-  //     const last = fullName.split(' ')[1];
-
-  //     users.push({
-  //       first,
-  //       last,
-  //       age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
-  //     });
-  //   }
 
   await User.collection.insertMany(users);
   const createdUsers = await User.find();
@@ -39,7 +25,7 @@ connection.once("open", async () => {
     const randomUser = createdUsers[randomIndex];
     postsToInsert.push({
       ...post,
-      userId: randomUser.userId,
+      userId: randomUser._id,
       username: randomUser.username,
     });
   });
@@ -48,39 +34,122 @@ connection.once("open", async () => {
 
   const createdPosts = await Post.find();
 
-  // // go through each comment datum
-  // comments.map(async (comment) => {
-  //     // get random user
-  //     const randomIndex = Math.floor(Math.random() * createdPosts.length);
-  //     const randomPost = createdPosts[randomIndex];
-  //     const user = await User.findById(randomPost.userId);
-  //     await Comment.create({
-  //         ...comment,
-  //         postId: randomPost._id,
-  //         userId: randomPost.userId,
-  //         username: user.username
-  //     })
-  // })
+  // go through each comment datum
+  const commentsToInsert = await Promise.all(
+    comments.map(async (comment) => {
+      // get random user
+      const randomIndex = Math.floor(Math.random() * createdPosts.length);
+      const randomPost = createdPosts[randomIndex];
 
-  // // go through each reaction datum
-  // reactions.map(async (reaction) => {
-  //     // get random user
-  //     const randomIndex = Math.floor(Math.random() * createdPosts.length);
-  //     const randomPost = createdPosts[randomIndex];
-  //     const user = await User.findById(randomPost.userId);
-  //     await Reaction.create({
-  //         ...reaction,
-  //         postId: randomPost._id,
-  //         userId: randomPost.userId,
-  //         username: user.username
-  //     })
-  // })
+      const user = await User.findOne({ _id: randomPost.userId });
 
-  //   await Post.collection.insertMany(applications);
+      return {
+        ...comment,
+        postId: randomPost._id,
+        userId: randomPost.userId,
+        username: user.username,
+      };
+    })
+  );
 
-  // loop through the saved applications, for each application we need to generate a application response and insert the application responses
-  console.table(users);
-  console.table(posts);
+  await Comment.insertMany(commentsToInsert);
+  const createdComments = await Comment.find();
+  for (const comment of createdComments) {
+    await Post.findOneAndUpdate(
+      { _id: comment.postId },
+      {
+        $addToSet: {
+          comments: comment._id,
+        },
+      }
+    );
+  }
+
+  // go through each reaction datum
+  const reactionsToInsert = await Promise.all(
+    reactions.map(async (reaction) => {
+      // get random user
+      const randomIndex = Math.floor(Math.random() * createdPosts.length);
+      const randomPost = createdPosts[randomIndex];
+
+      const user = await User.findOne({ _id: randomPost.userId });
+
+      return {
+        ...reaction,
+        postId: randomPost._id,
+        userId: randomPost.userId,
+        username: user.username,
+      };
+    })
+  );
+
+  await Reaction.insertMany(reactionsToInsert);
+
+  const createdReactions = await Reaction.find();
+
+  for (const reaction of createdReactions) {
+    await Post.findOneAndUpdate(
+      { _id: reaction.postId },
+      {
+        $addToSet: {
+          reactions: reaction._id,
+        },
+      }
+    );
+  }
+
+  const updatedPosts = await Post.find();
+
+  for (const post of updatedPosts) {
+    await User.findOneAndUpdate(
+      { _id: post.userId },
+      {
+        $addToSet: {
+          posts: post._id,
+        },
+      }
+    );
+  }
+
+  const updatedUsers = await User.find();
+  console.log(updatedUsers);
+
+  // following
+  for (let i = 0; i < updatedUsers.length; i++) {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * updatedUsers.length);
+    } while (randomIndex === i);
+    const randomUser = updatedUsers[randomIndex];
+    await User.findOneAndUpdate(
+      { _id: updatedUsers[i]._id },
+      {
+        $addToSet: {
+          following: randomUser._id,
+        },
+      }
+    );
+  }
+  // followers
+  for (let i = 0; i < updatedUsers.length; i++) {
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * updatedUsers.length);
+    } while (randomIndex === i);
+    const randomUser = updatedUsers[randomIndex];
+    await User.findOneAndUpdate(
+      { _id: updatedUsers[i]._id },
+      {
+        $addToSet: {
+          followers: randomUser._id,
+        },
+      }
+    );
+  }
+
+  const finalUsers = await User.find();
+  console.log(finalUsers);
+
   console.info("Seeding complete! 🌱");
   process.exit(0);
 });

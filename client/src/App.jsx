@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import NavbarComponent from './components/navbar/NavbarComponent';
 import Main from './components/main/Main';
+import PostForm from './pages/PostForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Explore from './components/explore/explore';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -11,9 +14,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Main className="mainSection" />
-      <Footer />
+      <Router>
+        <Header />
+        <NavbarComponent />
+        <Routes>
+          <Route className="mainSection" path="/" element={<Main />} />
+          <Route
+            className="postForm"
+            path="/pages/postForm"
+            element={<PostForm />}
+          />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
