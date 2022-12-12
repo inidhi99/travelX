@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 // comments
 // reactions
 
-const postForm = () => {
+const PostForm = () => {
   return (
     <>
       <p>This is the post page</p>
@@ -32,7 +32,7 @@ const postForm = () => {
           <Form.Control as="textarea" aria-label="With textarea" />
         </InputGroup>
         <InputGroup size="md">
-          <InputGroup.Text>Location</InputGroup.Text>
+          <InputGroup.Text>Add Location</InputGroup.Text>
           <Form.Control as="textarea" aria-label="With textarea" />
         </InputGroup>
       </Container>
@@ -40,4 +40,4 @@ const postForm = () => {
   );
 };
 
-export default postForm;
+export default PostForm;

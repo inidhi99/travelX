@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
-function Footer() {
+function NavbarComponent() {
   return (
     <>
       <Navbar bg="primary" variant="dark" fixed="bottom">
@@ -13,7 +13,7 @@ function Footer() {
             <Nav.Link href="#add event">Document Trip</Nav.Link>
             <Nav.Link href="#profile">Pofile</Nav.Link>
             {/* Temporary */}
-            <Link className="linkStyles" to="./pages/post">
+            <Link className="linkStyles" to="./pages/postForm">
               Post
             </Link>
           </Nav>
@@ -23,4 +23,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default NavbarComponent;
