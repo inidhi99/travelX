@@ -1,8 +1,9 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+function NavbarComponent() {
   return (
     <>
       <Navbar bg="primary" variant="dark" fixed="bottom">
@@ -11,6 +12,10 @@ function Navbar() {
             <Nav.Link href="#Explore">Explore</Nav.Link>
             <Nav.Link href="#add event">Document Trip</Nav.Link>
             <Nav.Link href="#profile">Pofile</Nav.Link>
+            {/* Temporary */}
+            <Link className="linkStyles" to="./pages/postForm">
+              Post
+            </Link>
           </Nav>
         </Container>
       </Navbar>
@@ -18,4 +23,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarComponent;
