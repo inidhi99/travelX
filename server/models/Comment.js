@@ -4,6 +4,9 @@ const commentSchema = new Schema({
   userId: {
     type: String,
   },
+  username: {
+    type: String,
+  },
   postId: {
     type: String,
   },
@@ -21,6 +24,5 @@ const commentSchema = new Schema({
   username: String,
 });
 const Comment = model('Comment', commentSchema);
-
 
 module.exports = Comment;
