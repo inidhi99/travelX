@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Detail from './pages/Detail';
 import Explore from './pages/Explore'
 import Home from "./pages/Home";
-import Login from './pages/Login';
+import Login from './pages/LoginForm';
 import SignupForm from './pages/SignupForm';
 
 
