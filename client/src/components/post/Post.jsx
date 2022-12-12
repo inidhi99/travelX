@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function SinglePost(post) {
     const {
-        User,
+        userId,
         title,
         country,
         city,
@@ -18,8 +18,8 @@ function SinglePost(post) {
             <h5>{city}</h5>
             <h3>{country}</h3>
             <h1>{title}</h1>
-            <Link to={`/${User}`}>
-                <p>{User}</p>
+            <Link to={`/${userId}`}>
+                <p>{userId}</p>
             </Link>
             <p>{createdAt}</p>
             {/* image goes here */}

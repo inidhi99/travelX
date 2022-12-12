@@ -11,7 +11,7 @@ const PostList = ({
     
     return (
     <div class="container">
-        <Link to={`/${Post.User}/posts/${_id}`}>
+        <Link to={`/${Post.userId}/posts/${_id}`}>
             <div class="row">
                 <div class="card bg-dark text-white">
                     <img src={Post.image} class="card-img" alt="post-image"/>
