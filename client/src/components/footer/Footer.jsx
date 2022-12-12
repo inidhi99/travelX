@@ -1,5 +1,6 @@
 import ListGroup from "react-bootstrap/ListGroup";
 
+// import font awesome in index.html 
 function Footer() {
   return (
     <>
