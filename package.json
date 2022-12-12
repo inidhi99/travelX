@@ -13,6 +13,7 @@
     "install:server": "cd server && npm i",
     "install:client": "cd client && npm i",
     "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed"
   },
   "keywords": [],
   "author": "",
