@@ -29,4 +29,6 @@ function SinglePost(post) {
 
         </div>
     )
-}
+};
+
+export default SinglePost;
