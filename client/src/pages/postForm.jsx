@@ -1,24 +1,24 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Image from 'react-bootstrap/Image';
+import { Container, Form, InputGroup, Image } from 'react-bootstrap';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-// Post photo
+// Upload photo
 // add description
-// add loaction - country city
+// add location - country city
 // upload image
-// login and signup of not logged in
 // date
 // comments
 // reactions
-const Post = () => {
+
+const postForm = () => {
   return (
     <>
+      <p>This is the post page</p>
       <Container>
-        <p>This is the post page</p>
-        {/* Image section */}
-
         <div style={{ display: 'block', width: 700, padding: 30 }}>
           <h4>Image Goes Below</h4>
           <Image
@@ -27,7 +27,6 @@ const Post = () => {
           />
         </div>
 
-        {/* Text area */}
         <InputGroup size="lg">
           <InputGroup.Text>Add Description</InputGroup.Text>
           <Form.Control as="textarea" aria-label="With textarea" />
@@ -41,4 +40,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default postForm;
