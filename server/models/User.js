@@ -1,18 +1,16 @@
 const { Schema, model, SchemaType } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import post schema 
-
 const userSchema = new Schema(
   {
     firstName: {
-        type: String,
-        required: true,
-      },
-      lastName: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
     username: {
       type: String,
       required: true,
@@ -31,16 +29,16 @@ const userSchema = new Schema(
     // set the array of data that adheres to the userSchema
     following: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: 'User',
     },
     followers: {
       type: Schema.Types.ObjectId,
-    ref: "User"
+      ref: 'User',
     },
     posts: {
       type: Schema.Types.ObjectId,
-      ref: "Post"
-      }
+      ref: 'Post',
+    },
   },
   // set this to use virtual below
   {
@@ -64,7 +62,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
 
 const User = model('User', userSchema);
 
