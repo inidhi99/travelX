@@ -7,6 +7,7 @@ import { QUERY_ME } from '../../utils/queries';
 function SinglePost(post) {
     const {
         User,
+        title,
         country,
         city,
         image,
@@ -19,7 +20,7 @@ function SinglePost(post) {
         <div className="card px-1 py-1">
             <h5>{city}</h5>
             <h3>{country}</h3>
-            <h1>Title of Post Goes Here</h1>
+            <h1>{title}</h1>
             <Link to={`/${User}`}>
                 <p>{User}</p>
             </Link>
