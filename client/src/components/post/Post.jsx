@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function SinglePost(post) {
+function Post(post) {
     const {
         userId,
         title,
@@ -30,4 +30,4 @@ function SinglePost(post) {
     )
 };
 
-export default SinglePost;
+export default Post;

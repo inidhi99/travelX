@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Post from '../post/Post';
+import { Post } from '../post/Post';
 
 const PostList = ({
     posts
@@ -24,3 +24,5 @@ const PostList = ({
     </div>
     )
 };
+
+export default PostList;
