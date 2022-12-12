@@ -9,7 +9,7 @@ function Header() {
           TravelX
         </h1>
       </Jumbotron> */}
-      ;
+      
     </>
   );
 }
