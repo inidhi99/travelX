@@ -17,8 +17,10 @@ import Grid from '@mui/material/Unstable_Grid2';
 // reactions
 const fetchAPI = async () => {
   const response = await axios.get(
-    'https://api.unsplash.com/photos/?client_id=process.env.UNSPLASH_API_KEY'
+    'https://api.unsplash.com/photos/?client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
   );
+  console.log(response.data);
+  const data = await response.data;
 };
 // Image files goes here
 const itemData = [
@@ -93,4 +95,3 @@ const PostForm = () => {
 };
 
 export default PostForm;
-// process.env.UNSPLASH_API_KEY
