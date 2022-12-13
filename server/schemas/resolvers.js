@@ -13,7 +13,7 @@ const resolvers = {
     posts: async () => {
       return Post.find().sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
-    post: async (parent, {postId}) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId }).sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
     myPosts: async (parent, { userId }) => {
@@ -38,7 +38,6 @@ const resolvers = {
       return Reaction.findOne({ _id: reactionId }).sort({ createdAt: -1 });
     },
 
-
     // post: async (parent, { postId }) => {
     //   return post.findOne({ _id: postId });
     // },
@@ -51,13 +50,8 @@ const resolvers = {
   },
 
   Mutation: {
-<<<<<<< HEAD
-    addUser: async (parent, { username, email, password, firstName, lastName }) => {
-      const user = await User.create({ username, email, password, firstName, lastName });
-=======
     addUser: async (parent, args) => {
       const user = await User.create(args);
->>>>>>> 63473531e56166e4542a8ecf3b2081735a248c0f
       const token = signToken(user);
       return { token, user };
     },
@@ -84,7 +78,7 @@ const resolvers = {
         username: context.user.username,
         postId: postId,
       });
-      console.log(comment)
+      console.log(comment);
 
       const updatedPost = await Post.findOneAndUpdate(
         { _id: postId },
@@ -97,7 +91,8 @@ const resolvers = {
           new: true,
         }
       ).populate({
-        path:"comments", model: "Comment"
+        path: 'comments',
+        model: 'Comment',
       });
       return updatedPost;
     },
@@ -122,22 +117,14 @@ const resolvers = {
         {
           new: true,
         }
-<<<<<<< HEAD
-      );
-
-      console.log(updatedPost);
+      ).populate({
+        path: 'reactions',
+        model: 'Reaction',
+      });
+      return updatedPost;
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
-=======
-        ).populate({
-          path:"reactions", model: "Reaction"
-        });
-        return updatedPost;
-      },
     login: async (parent, { username, email, password }) => {
       const user = await User.findOne({ $or: [{ username }, { email }] });
->>>>>>> 63473531e56166e4542a8ecf3b2081735a248c0f
 
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
