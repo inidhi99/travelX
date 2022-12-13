@@ -9,8 +9,8 @@ import {
 function Main() {
   return (
     <div id="create-profile-form">
-      <h2> Create a profile!</h2>
-      <Form horizontal>
+      <h2> Login</h2>
+      <Form horizontal id="form">
         <FormGroup controlId="formHorizontalEmail">
           <Col componentClass='' sm={2} id="formName">
             Email
@@ -41,7 +41,7 @@ function Main() {
           </Col>
         </FormGroup>
       </Form>
-      
+      <a href="/signup" id="create-account-link">Sign up to create an account.</a>
     </div>
   );
 }

@@ -1,3 +1,11 @@
+h2 {
+    font-size: 25pt;
+}
+
+#form {
+    margin: 60px;
+}
+
 #create-profile-form {
     margin: 50px;
 }
@@ -28,4 +36,15 @@
     color: white;
     transition: .3s;
     scale: 102%
+}
+
+#create-account-link {
+    color: rgb(214, 239, 253);
+    font-size: 13pt;
+}
+
+#create-account-link:hover {
+    transition: .3s;
+    color: white;
+    font-size: 13pt;
 }
