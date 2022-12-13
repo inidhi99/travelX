@@ -26,7 +26,7 @@ const itemData = [
 const PostForm = () => {
   return (
     <>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Grid container>
         {/* Image list  */}
         <ImageList
