@@ -12,6 +12,16 @@ export const reducer = (state, action) => {
         ...state,
         posts: [...action.posts]
       }
+    case UPDATE_COMMENTS: 
+      return {
+        ...state,
+        comments: [...action.comments]
+      }
+    case UPDATE_REACTIONS:
+      return {
+        ...state,
+        reactions: [...action.reactions]
+      }
     default:
       return state;
   }

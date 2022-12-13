@@ -10,7 +10,9 @@ const { Post } = GlobalContext;
 export const GlobalPost = (props) => {
     // create some state with useReducer
     const [state, dispatch] = useReducer( reducer, {
-        posts: []
+        posts: [],
+        comments: [],
+        reactions: [],
     })
     // pass the state to the context provider's value prop
     return <Post value={[state, dispatch]}{...props}/>
