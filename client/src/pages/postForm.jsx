@@ -123,7 +123,6 @@ const PostForm = () => {
               width: '30ch',
             },
             display: 'flex',
-
             justifyContent: 'center',
             alignItems: 'center',
           }}
