@@ -1,19 +1,12 @@
-import ListGroup from 'react-bootstrap/ListGroup';
+import './Footer.css'
 
 // import font awesome in index.html
 function Footer() {
   return (
-    <>
-      <ListGroup horizontal>
-        <ListGroup.Item>Igor</ListGroup.Item>
-        <ListGroup.Item>Jeff</ListGroup.Item>
-        <ListGroup.Item>Evince</ListGroup.Item>
-        <ListGroup.Item>Nidhi</ListGroup.Item>
-        <ListGroup.Item>Bria</ListGroup.Item>
-        <ListGroup.Item>Valeria</ListGroup.Item>
-        <ListGroup.Item>Jules</ListGroup.Item>
-      </ListGroup>
-    </>
+    <div>
+      <p id="copyrights">© 2022, TravelX. All rights reserved.</p>
+      <p id="creators">Created by Igor, Jeff, Valeria, Nidhi, Evince, Jules, and Bria.</p>
+    </div>
   );
 }
 
