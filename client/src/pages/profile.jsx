@@ -7,7 +7,11 @@ import PostList from '../components/postList/PostList'
 // import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
+<<<<<<< HEAD
     // const { username: userParam } = useParams();
+=======
+    // const { username: userParam } = userParams();
+>>>>>>> 335917d2f14bc68ced666927be134a328cb3de7f
 
     // // if there is no username in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's informtaion
     // const { loading, data } = useQuery(userParam ? QUERY_SINGLE_USER : QUERY_ME, {

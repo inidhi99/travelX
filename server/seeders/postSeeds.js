@@ -1,43 +1,51 @@
 module.exports = [
     {
+        title: "Trip to England",
         country:"United Kingdom",
         city: "London",
-        content: "I very much wanna visit this place",
+        body: "I very much wanna visit this place",
     },
     {
+        title: "Trip to USA",
         country:"USA",
         city:"New York",
-        content: "Splendid!",
+        body: "Splendid!",
     },
     {
+        title: "Trip to France",
         country:"France",
         city:"Paris",
-        content: "J'adore le paysage!",
+        body: "J'adore le paysage!",
     },
     {
+        title: "Trip to USA",
         country:"USA",
         city:"Los Angeles",
-        content: "Splendid view!",
+        body: "Splendid view!",
     },
     {
+        title: "Trip to Switzeland",
         country:"Switzeland",
         city:"Lausanne",
-        content: "The best place for Ski, love it!!",
+        body: "The best place for Ski, love it!!",
     },
     {
+        title: "Trip to Japan",
         country:"Japan",
         city:"Kyoto",
-        content: "It's magical!",
+        body: "It's magical!",
     },
     {
+        title: "Trip to France",
         country:"France",
         city:"Nice",
-        content: "Beautiful churces and beaches",
+        body: "Beautiful churces and beaches",
     },
     {
+        title: "Trip to Africa",
         country:"South Africa",
         city:"Cape Town",
-        content: "Stunning nature!",
+        body: "Stunning nature!",
     },
 
 ]
