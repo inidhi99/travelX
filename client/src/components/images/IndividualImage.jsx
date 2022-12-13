@@ -2,9 +2,9 @@ import React from 'react';
 
 const IndividualImage = ({ image }) => {
   return (
-    <div className="photo">
-      <img src={image.urls.small} alt="unsplash images" />
-    </div>
+    <a href={data.urls.regular}>
+      <img src={image.urls.small} alt={data.alt_description} />
+    </a>
   );
 };
 

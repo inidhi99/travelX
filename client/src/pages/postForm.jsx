@@ -32,6 +32,19 @@ const PostForm = () => {
     fetchAPI();
   }, []);
   console.log(images);
+
+  // textinput  state  variables
+  const [title, setTitle] = useState('');
+  const [country, setCountry] = useState('');
+  const [city, setCity] = useState('');
+  const [body, setBody] = useState('');
+
+  // const [data, setData] = useState();
+  // const [print, setPrint] = useState(false);
+  // const getData = (e) => {
+  //   setData(e.target.value);
+  //   console.log(e.target.value);
+  // };
   return (
     <>
       <CssBaseline />
@@ -61,7 +74,14 @@ const PostForm = () => {
 
       {/* Input Form */}
       <FormControl sx={{ width: '25ch' }}>
-        <TextField id="standard-basic" label="Title" variant="standard" />
+        <TextField
+          value={data}
+          type="text"
+          onChange={getData}
+          id="standard-basic"
+          label="Title"
+          variant="standard"
+        />
         <TextField id="standard-basic" label="Country" variant="standard" />
         <TextField id="standard-basic" label="City" variant="standard" />
         <Box
@@ -87,6 +107,12 @@ const PostForm = () => {
             rows={4}
           />
         </Box>
+        <button
+          className="btn btn-primary btn-sm"
+          onClick={() => setPrint(true)}
+        >
+          Submit
+        </button>
       </FormControl>
     </>
   );
