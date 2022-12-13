@@ -1,11 +1,12 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-
 import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 
 // Upload photo
 // add description
@@ -18,7 +19,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 // Image files goes here
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    img: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Breakfast',
   },
 ];
@@ -28,24 +29,30 @@ const PostForm = () => {
     <>
       <CssBaseline />
       <Container maxWidth="md">
-        {/* Image list  */}
-
-        <ImageList
-          sx={{ width: 500, height: 450, overflow: 'hidden' }}
-          cols={1}
-          rowHeight={164}
-        >
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <img
-                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
+        <Grid container spacing={1} minHeight={160}>
+          {/* Image list  */}
+          <ImageList
+            sx={{
+              width: 1080,
+              height: 1080,
+              overflow: 'hidden',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            {itemData.map((item) => (
+              <ImageListItem key={item.img}>
+                <img
+                  src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                  srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </Grid>
 
         {/* Input Form */}
         <FormControl sx={{ width: '25ch' }}>
