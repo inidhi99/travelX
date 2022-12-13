@@ -4,26 +4,25 @@ const typeDefs = gql`
   type User {
     _id: ID
     firstName: String
-    lasName: String
+    lastName: String
     username: String
-    email:String
+    email: String
     password: String
     following: [User]
     follwers: [User]
-    posts: [Post]!
+    posts: [Post]
   }
 
   type Post {
     _id: ID
-    userId: ID
-    postText: String
-    postAuthor: String
+    userId: String
+    username: String
+    title: String
+    body: String
     country: String
     city: String
     comments: [Comment]!
     reactions: [Reaction]!
-    createdAt: String
-
   }
 
   type Comment {
@@ -31,8 +30,6 @@ const typeDefs = gql`
     userId: ID
     username: String
     commentText: String
-    commentAuthor: String
-    content: String
     createdAt: String
   }
 
@@ -40,15 +37,21 @@ const typeDefs = gql`
     _id: ID
     userId: ID
     username: String
-    type: String
+    reactionType: String
     createdAt: String
-    
+  }
+
+  type Auth {
+    token: ID
+    user: User
   }
 
   type Query {
     users: [User]
     user(username: String!): User
-    posts(userId: ID): [Post]
+    posts: [Post]
+    post(postId: ID!): Post
+    myPosts(userId: ID): [Post]
     comments(postId: ID): [Comment]
     reactions(postId: ID): [Reaction]
     me: User
@@ -57,12 +60,12 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(postText: String!): Post
+    addPost(title: String!, body: String!, city: String!, Country: String!): Post
     addComment(postId: ID!, commentText: String!): Post
-    addReaction(postId: ID!): Post
+    addReaction(postId: ID!, reactionType: String): Post
     removePost(postId: ID!): Post
-    removeComment(postId: ID! commentId: ID!): Post
-    removeReaction (postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Post
+    removeReaction(postId: ID!): Post
   }
 `;
 
