@@ -39,6 +39,20 @@ const PostForm = () => {
   const [city, setCity] = useState('');
   const [body, setBody] = useState('');
 
+  // const handleInputChange = (e) => {
+  //   const { name, input } = e.target;
+  //   return name === 'title' ? setTitle(input)
+  // };
+
+  // form submit function
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    alert('Your post has been submitted');
+    setTitle('');
+    setCountry('');
+    setCity('');
+    setBody('');
+  };
   // const [data, setData] = useState();
   // const [print, setPrint] = useState(false);
   // const getData = (e) => {
@@ -75,15 +89,32 @@ const PostForm = () => {
       {/* Input Form */}
       <FormControl sx={{ width: '25ch' }}>
         <TextField
-          value={data}
+          input={title}
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
           type="text"
-          onChange={getData}
+          placeholder="Enter A Title..."
           id="standard-basic"
-          label="Title"
           variant="standard"
         />
-        <TextField id="standard-basic" label="Country" variant="standard" />
-        <TextField id="standard-basic" label="City" variant="standard" />
+        <TextField
+          input={country}
+          name="country"
+          onChange={(e) => setCountry(e.target.value)}
+          type="text"
+          placeholder="Provide A Country"
+          id="standard-basic"
+          variant="standard"
+        />
+        <TextField
+          input={city}
+          name="city"
+          onChange={(e) => setCity(e.target.value)}
+          type="text"
+          placeholder="Provide A City"
+          id="standard-basic"
+          variant="standard"
+        />
         <Box
           component="form"
           sx={{
@@ -100,17 +131,18 @@ const PostForm = () => {
           autoComplete="off"
         >
           <TextField
+            input={body}
+            name="body"
+            onChange={(e) => setCity(e.target.value)}
+            type="text"
+            placeholder="Enter a post"
             sx={{ p: 0.5 }}
             id="outlined-multiline-static"
-            label="Body"
             multiline
             rows={4}
           />
         </Box>
-        <button
-          className="btn btn-primary btn-sm"
-          onClick={() => setPrint(true)}
-        >
+        <button className="btn btn-primary btn-sm" onClick={handleFormSubmit}>
           Submit
         </button>
       </FormControl>
