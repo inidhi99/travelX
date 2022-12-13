@@ -15,12 +15,14 @@ import Grid from '@mui/material/Unstable_Grid2';
 // date
 // comments
 // reactions
+const [images, setImages] = useState([]);
 const fetchAPI = async () => {
   const response = await axios.get(
     'https://api.unsplash.com/photos/?client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
   );
   console.log(response.data);
   const data = await response.data;
+  setImages(data);
 };
 // Image files goes here
 const itemData = [
@@ -58,6 +60,9 @@ const PostForm = () => {
               />
             </ImageListItem>
           ))}
+          <div className="photos">
+            {images.length > 0 && <Images images={iamges} />}
+          </div>
         </ImageList>
       </Grid>
 
