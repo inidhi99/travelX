@@ -52,6 +52,28 @@ const resolvers = {
         username: context.user.username,
       });
     },
+    addComment: async (parent, { commentText, postId }, context) => {
+      const comment = await Comment.create({
+        commentText: commentText,
+        userId: context.user._id,
+        username: context.user.username,
+        postId: postId,
+      });
+
+      const updatedPost = await Post.findOneAndUpdate(
+        { _id: postId },
+        {
+          $addToSet: {
+            comments: comment._id,
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      console.log(updatedPost);
+    },
     login: async (parent, { username, email, password }) => {
       const user = await User.findOne({ $or: [{ username }, { email }] });
 
