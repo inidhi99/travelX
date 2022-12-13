@@ -1,4 +1,5 @@
-import React from 'react';
+import { React, useState } from 'react';
+import axios from 'axios';
 import CssBaseline from '@mui/material/CssBaseline';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
@@ -14,7 +15,11 @@ import Grid from '@mui/material/Unstable_Grid2';
 // date
 // comments
 // reactions
-
+const fetchAPI = async () => {
+  const response = await axios.get(
+    'https://api.unsplash.com/photos/?client_id=process.env.UNSPLASH_API_KEY'
+  );
+};
 // Image files goes here
 const itemData = [
   {
@@ -47,6 +52,7 @@ const PostForm = () => {
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
+                onClick={fetchAPI}
               />
             </ImageListItem>
           ))}
@@ -61,8 +67,12 @@ const PostForm = () => {
         <Box
           component="form"
           sx={{
-            '& .MuiTextField-root': { m: 1, width: '30ch' },
+            '& .MuiTextField-root': {
+              m: 1,
+              width: '30ch',
+            },
             display: 'flex',
+
             justifyContent: 'center',
             alignItems: 'center',
           }}
@@ -83,3 +93,4 @@ const PostForm = () => {
 };
 
 export default PostForm;
+// process.env.UNSPLASH_API_KEY
