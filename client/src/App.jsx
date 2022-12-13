@@ -15,7 +15,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
     // <>
@@ -44,24 +44,19 @@ function App() {
           <Route className="mainSection" path="/" element={<Main />} />
           <Route
             className="postForm"
-            path="/create-post"
+            path="/pages/PostForm"
             element={<PostForm />}
           />
           <Route
             className="signupForm"
-            path="/signup"
+            path="/pages/SignupForm"
             element={<SignupForm />}
           />
           <Route
             className="loginForm"
-            path="/login"
+            path="/pages/LoginForm"
             element={<LoginForm />}
           />
-            {/* <Route
-            className="profile"
-            path="/profile"
-            element={<Profile />}
-          /> */}
         </Routes>
         <Footer />
       </Router>

@@ -26,7 +26,7 @@ const LoginForm = () => {
         Login 
       </Button> */}
 
-      <Link className="linkStyles" to="#Explore">
+      <Link className="linkStyles" to="/explore">
         <Button variant="primary" size="lg"> Login </Button>
         </Link>
 
