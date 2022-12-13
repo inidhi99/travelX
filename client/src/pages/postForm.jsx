@@ -17,20 +17,12 @@ import Grid from '@mui/material/Unstable_Grid2';
 // comments
 // reactions
 
-// Image files goes here
-// const itemData = [
-//   {
-//     img: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-//     title: 'Breakfast',
-//   },
-// ];
-
 const PostForm = () => {
   // Unsplash image API
   const [images, setImages] = useState([]);
   const fetchAPI = async () => {
     const response = await axios.get(
-      'https://api.unsplash.com/photos/?client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
+      'https://api.unsplash.com/search/photos?query=travel&client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
     );
 
     const data = await response.data;
@@ -56,7 +48,6 @@ const PostForm = () => {
             zIndex: 2,
           }}
         >
-          {/* {itemData.map((item) => ( */}
           <ImageListItem>
             <button className="btn btn-primary btn-sm" onClick={fetchAPI}>
               Click
