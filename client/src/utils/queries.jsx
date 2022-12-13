@@ -29,16 +29,27 @@ export const QUERY_SINGLE_USER = gql`
 `;
 
 export const QUERY_POSTS = gql`
-  query allPosts {
-    posts {
-      _id
-      userId
-      country
-      city
-      comments
-      reactions
-      createdAt
-    }
+posts {
+  _id
+  body
+  city
+  country
+  title
+  userId
+  username
+  comments {
+    _id
+    userId
+    username
+    commentText
+  }
+  reactions {
+    _id
+    userId
+    username
+    reactionType
+  }
+}
   }
 `;
 

@@ -27,7 +27,6 @@ const Post = ({ post }) => {
             <p>{createdAt}</p>
             {/* image goes here */}
             <p>{reactions}</p>
-            {/* description goes here once property in Post model is created */}
             <p>{comments}</p>
         </div>
     )
