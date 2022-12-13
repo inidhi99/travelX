@@ -28,49 +28,50 @@ const PostForm = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="md">
-        <Grid container spacing={1} minHeight={160}>
-          {/* Image list  */}
-          <ImageList
-            sx={{
-              width: 1080,
-              height: 1080,
-              overflow: 'hidden',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {itemData.map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </Grid>
+      <Grid container>
+        {/* Image list  */}
+        <ImageList
+          sx={{
+            width: 500,
+            height: 500,
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 2,
+          }}
+        >
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </Grid>
 
-        {/* Input Form */}
-        <FormControl sx={{ width: '25ch' }}>
-          <TextField
-            id="standard-basic"
-            label="Add Description"
-            variant="standard"
-          />
+      {/* Input Form */}
+      <FormControl sx={{ width: '25ch' }}>
+        <TextField
+          id="standard-basic"
+          label="Add Description"
+          variant="standard"
+        />
 
-          <TextField
-            id="standard-basic"
-            label="Add Location"
-            variant="standard"
-          />
-        </FormControl>
-      </Container>
+        <TextField
+          id="standard-basic"
+          label="Add Location"
+          variant="standard"
+        />
+      </FormControl>
     </>
   );
 };
 
 export default PostForm;
+
+// title countery city body
