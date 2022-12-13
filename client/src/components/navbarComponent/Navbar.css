@@ -2,7 +2,7 @@
     margin: 20px;
 }
 
-.link {
+.linkStyles {
     display: inline-flex;
     justify-content: space-between;
     margin: 30px;
@@ -13,7 +13,7 @@
     color: rgb(5, 82, 159); 
 }
 
-.link:hover {
+.linkStyles:hover {
     color: white;
     transition: .3s;
 }
