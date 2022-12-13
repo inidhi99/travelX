@@ -16,6 +16,11 @@ function NavbarComponent() {
             <Link className="linkStyles" to="./pages/PostForm">
               Post
             </Link>
+
+            <Link className="linkStyles" to="./pages/LoginForm">
+              login
+            </Link>
+            
           </Nav>
         </Container>
       </Navbar>
