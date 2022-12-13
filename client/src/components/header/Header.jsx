@@ -1,16 +1,13 @@
-// import Jumbotron from "react-bootstrap/Jumbotron";
+import { Link } from 'react-router-dom';
+import "./Header.css"
 
 function Header() {
   return (
-    <>
-      <h1 className="appTitle"> TravelX</h1>
-      {/* <Jumbotron className="header" style={{ background: "solid grey" }}>
-        <h1 className="headerName" style={{ align: "center", color: "white" }}>
-          TravelX
-        </h1>
-      </Jumbotron> */}
-      
-    </>
+    <div>
+      <Link to="/">
+        <h1 className="appTitle"> TravelX</h1>
+      </Link>
+    </div>
   );
 }
 

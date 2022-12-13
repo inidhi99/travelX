@@ -22,7 +22,10 @@ const postSchema = new Schema({
     required: true,
   },
   userId: {
-    type: Schema.Types.ObjectId,
+    type: String,
+  },
+  username: {
+    type: String,
   },
   city: {
     type: String,
@@ -38,8 +41,18 @@ const postSchema = new Schema({
     default: Date.now,
     get: timestamp => dateFormat(timestamp),
   },
-  comments: [commentSchema],
-  reactions: [reactionSchema],
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
+  reactions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Reaction',
+    },
+  ],
 });
 
 // Create a virtual property `commentCount` that gets the amount of comments per post
@@ -55,6 +68,6 @@ postSchema.virtual('likeCount').get(function () {
 postSchema.virtual('dislikeCount').get(function () {
   return this.reactions.filter(reaction => reaction.reactionType === 'dislike').length;
 });
-// const Post = model('Post', postSchema);
+const Post = model('Post', postSchema);
 
-module.exports = postSchema;
+module.exports = Post;
