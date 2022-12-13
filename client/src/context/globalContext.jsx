@@ -4,10 +4,10 @@ import reducer from './reducer'
 
 //create a context
 const GlobalContext = createContext();
-const { Post } = GlobalContext;
+const { Provider } = GlobalContext;
 
 //create custom provider
-export const GlobalPost = (props) => {
+export const GlobalProvider = (props) => {
     // create some state with useReducer
     const [state, dispatch] = useReducer( reducer, {
         posts: [],
@@ -15,8 +15,8 @@ export const GlobalPost = (props) => {
         reactions: [],
     })
     // pass the state to the context provider's value prop
-    return <Post value={[state, dispatch]}{...props}/>
+    return <Provider value={[state, dispatch]}{...props}/>
 }
 
 // create a hook so that components can consume the context data
-export const useGlobalPost=() => useContext(GlobalContext)
+export const useGlobalContext =() => useContext(GlobalContext)
