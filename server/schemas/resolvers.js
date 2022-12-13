@@ -13,10 +13,10 @@ const resolvers = {
     posts: async () => {
       return Post.find().sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
-    // myPosts: async (parent, { userId }) => {
-    //   //   const params = username ? { username } : {};
-    //   return Post.find({ userId }).sort({ createdAt: -1 }).populate('comments').populate('reactions');
-    // },
+    myPosts: async (parent, { userId }) => {
+      //   const params = username ? { username } : {};
+      return Post.find({ userId }).sort({ createdAt: -1 }).populate('comments').populate('reactions');
+    },
     comments: async (parent, { postId }) => {
       //   const params = username ? { username } : {};
       return Comment.find({ postId }).sort({ createdAt: -1 });
@@ -36,12 +36,25 @@ const resolvers = {
     },
   },
 
+  Mutation: {
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+    addPost: async (parent, { title, body, city, country }, context) => {
+      const post = await Post.create({
+        title: title,
+      });
+    },
+  },
+
   //   Mutation: {
-  //     addUser: async (parent, { username, email, password }) => {
-  //       const user = await User.create({ username, email, password });
-  //       const token = signToken(user);
-  //       return { token, user };
-  //     },
+  // addUser: async (parent, { username, email, password }) => {
+  //   const user = await User.create({ username, email, password });
+  //   const token = signToken(user);
+  //   return { token, user };
+  // },
   //     login: async (parent, { email, password }) => {
   //       const user = await User.findOne({ email });
 
