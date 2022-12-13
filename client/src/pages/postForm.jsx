@@ -1,6 +1,5 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -59,12 +58,28 @@ const PostForm = () => {
         <TextField id="standard-basic" label="Title" variant="standard" />
         <TextField id="standard-basic" label="Country" variant="standard" />
         <TextField id="standard-basic" label="City" variant="standard" />
-        <TextField id="standard-basic" label="Body" variant="standard" />
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '30ch' },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            sx={{ p: 0.5 }}
+            id="outlined-multiline-static"
+            label="Body"
+            multiline
+            rows={4}
+          />
+        </Box>
       </FormControl>
     </>
   );
 };
 
 export default PostForm;
-
-// title countery city body
