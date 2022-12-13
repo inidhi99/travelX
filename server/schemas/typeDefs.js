@@ -9,7 +9,7 @@ const typeDefs = gql`
     email: String
     password: String
     following: [User]
-    follwers: [User]
+    followers: [User]
     posts: [Post]
   }
 
@@ -53,14 +53,22 @@ const typeDefs = gql`
     post(postId: ID!): Post
     myPosts(userId: ID): [Post]
     comments(postId: ID): [Comment]
+    comment(commentId: ID): Comment
     reactions(postId: ID): [Reaction]
+    reaction(reactionId: ID): Reaction
     me: User
   }
 
   type Mutation {
+<<<<<<< HEAD
     addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(title: String!, body: String!, city: String!, Country: String!): Post
+=======
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String, password: String!, username:String): Auth
+    addPost(title: String!, body: String!, city: String!, country: String!): Post
+>>>>>>> 63473531e56166e4542a8ecf3b2081735a248c0f
     addComment(postId: ID!, commentText: String!): Post
     addReaction(postId: ID!, reactionType: String): Post
     removePost(postId: ID!): Post
