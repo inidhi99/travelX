@@ -1,6 +1,6 @@
-import { React, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Images } from '../components/images/Images';
+import Images from '../components/images/Images';
 import CssBaseline from '@mui/material/CssBaseline';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
@@ -16,24 +16,30 @@ import Grid from '@mui/material/Unstable_Grid2';
 // date
 // comments
 // reactions
-const [images, setImages] = useState([]);
-const fetchAPI = async () => {
-  const response = await axios.get(
-    'https://api.unsplash.com/photos/?client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
-  );
-  console.log(response.data);
-  const data = await response.data;
-  setImages(data);
-};
+
 // Image files goes here
-const itemData = [
-  {
-    img: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    title: 'Breakfast',
-  },
-];
+// const itemData = [
+//   {
+//     img: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+//     title: 'Breakfast',
+//   },
+// ];
 
 const PostForm = () => {
+  // Unsplash image API
+  const [images, setImages] = useState([]);
+  const fetchAPI = async () => {
+    const response = await axios.get(
+      'https://api.unsplash.com/photos/?client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
+    );
+
+    const data = await response.data;
+    setImages(data);
+  };
+  useEffect(() => {
+    fetchAPI();
+  }, []);
+  console.log(images);
   return (
     <>
       <CssBaseline />
@@ -50,20 +56,15 @@ const PostForm = () => {
             zIndex: 2,
           }}
         >
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <img
-                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-                onClick={fetchAPI}
-              />
-            </ImageListItem>
-          ))}
-          <div className="photos">
-            {images.length > 0 && <Images images={iamges} />}
-          </div>
+          {/* {itemData.map((item) => ( */}
+          <ImageListItem>
+            <button className="btn btn-primary btn-sm" onClick={fetchAPI}>
+              Click
+            </button>
+            <div className="photos">
+              {images.length > 0 && <Images images={images} />}
+            </div>
+          </ImageListItem>
         </ImageList>
       </Grid>
 

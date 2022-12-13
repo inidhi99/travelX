@@ -1,5 +1,11 @@
 import React from 'react';
 
-export default function IndividualImage() {
-  return <div>IndividualImage</div>;
-}
+const IndividualImage = ({ image }) => {
+  return (
+    <div className="photo">
+      <img src={image.urls.full} alt="unsplash images" />
+    </div>
+  );
+};
+
+export default IndividualImage;
