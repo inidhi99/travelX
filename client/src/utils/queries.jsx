@@ -1,29 +1,87 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USERS = gql`
   query allUsers {
     users {
-      _id
-      firstName
-      lasName
       username
-      following
-      follwers
-      posts
+      posts {
+        _id
+        userId
+        username
+        title
+        body
+        country
+        city
+        comments {
+          _id
+          userId
+          username
+          commentText
+          createdAt
+        }
+        reactions {
+          _id
+          userId
+          username
+          reactionType
+          createdAt
+        }
+      }
+      following {
+        _id
+        username
+        email
+      }
+      followers {
+        _id
+        username
+        email
+      }
+      email
+      _id
     }
   }
 `;
 
 export const QUERY_SINGLE_USER = gql`
   query singleUSER($userId: ID!) {
-    user(userId: $userId) {
+    user(username: $username) {
       _id
-      firstName
-      lasName
       username
-      following
-      follwers
-      posts
+      email
+      following {
+        _id
+        username
+        email
+      }
+      followers {
+        _id
+        username
+        email
+      }
+      posts {
+        _id
+        userId
+        username
+        title
+        body
+        country
+        city
+        comments {
+          _id
+          userId
+          username
+          commentText
+          createdAt
+        }
+        reactions {
+          _id
+          userId
+          username
+          reactionType
+          createdAt
+        }
+      }
     }
   }
 `;
@@ -33,11 +91,25 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       userId
+      username
+      title
+      body
       country
       city
-      comments
-      reactions
-      createdAt
+      comments {
+        _id
+        userId
+        username
+        commentText
+        createdAt
+      }
+      reactions {
+        _id
+        userId
+        username
+        reactionType
+        createdAt
+      }
     }
   }
 `;
@@ -47,22 +119,36 @@ export const QUERY_SINGLE_POST = gql`
     post(postId: $postId) {
       _id
       userId
+      username
+      title
+      body
       country
       city
-      comments
-      reactions
-      createdAt
+      comments {
+        _id
+        userId
+        username
+        commentText
+        createdAt
+      }
+      reactions {
+        _id
+        userId
+        username
+        reactionType
+        createdAt
+      }
     }
   }
 `;
 
 export const QUERY_COMMENTS = gql`
   query allComments {
-    comments {
+    comments(postId: $postId) {
       _id
       userId
       username
-      content
+      commentText
       createdAt
     }
   }
@@ -74,7 +160,7 @@ export const QUERY_SINGLE_COMMENT = gql`
       _id
       userId
       username
-      content
+      commentText
       createdAt
     }
   }
@@ -82,11 +168,11 @@ export const QUERY_SINGLE_COMMENT = gql`
 
 export const QUERY_REACTIONS = gql`
   query allReactions {
-    reactions {
+    reactions(postId: $postId) {
       _id
       userId
       username
-      type
+      reactionType
       createdAt
     }
   }
@@ -98,7 +184,7 @@ export const QUERY_SINGLE_REACTION = gql`
       _id
       userId
       username
-      type
+      reactionType
       createdAt
     }
   }
@@ -108,11 +194,41 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      users
       username
-      posts
-      comment
-      reaction
+      email
+      following {
+        _id
+        username
+        email
+      }
+      followers {
+        _id
+        username
+        email
+      }
+      posts {
+        _id
+        userId
+        username
+        title
+        body
+        country
+        city
+        comments {
+          _id
+          userId
+          username
+          commentText
+          createdAt
+        }
+        reactions {
+          _id
+          userId
+          username
+          reactionType
+          createdAt
+        }
+      }
     }
   }
 `;
