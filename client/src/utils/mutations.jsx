@@ -60,7 +60,6 @@ addComment(postId: $postId, commentText: $commentText) {
     createdAt
   }
 }
-  }
 `;
 
 export const ADD_REACTION = gql`
