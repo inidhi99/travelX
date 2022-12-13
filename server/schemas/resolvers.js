@@ -45,7 +45,28 @@ const resolvers = {
     addPost: async (parent, { title, body, city, country }, context) => {
       const post = await Post.create({
         title: title,
+        body: body,
+        city: city,
+        country: country,
+        userId: context.user._id,
+        username: context.user.username,
       });
+    },
+    login: async (parent, { username, email, password }) => {
+      const user = await User.findOne({ $or: [{ username }, { email }] });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
   },
 
