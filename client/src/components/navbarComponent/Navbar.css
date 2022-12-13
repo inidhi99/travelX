@@ -1,0 +1,18 @@
+.navbar {
+    margin: 20px;
+}
+
+.link {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: white;
+    transition: .3s;
+}
