@@ -14,23 +14,20 @@ function AuthorizedApp() {
         <h3>Welcome Back Nidhi, Evince, Igor, Valeria</h3>
           <NavbarComponent />
           <Routes>
-            <Route
-              className="mainSection"
-              path="/"
-              element={<Main />} />
+            <Route className="mainSection" path="/" element={<Main />} />
             <Route
               className="postForm"
-              path="/create-post"
+              path="/pages/PostForm"
               element={<PostForm />}
             />
             <Route
               className="profile"
-              path="/profile"
+              path="/pages/Profile"
               element={<Profile/>}
             />
             <Route
               className="explore"
-              path="/explore"
+              path="/pages/Explore"
               element={<Explore />}
             />
           </Routes>

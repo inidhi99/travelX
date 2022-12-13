@@ -31,16 +31,16 @@ const SignupForm = () => {
         </Form.Group>
 
 
-        <Form.Group controlId="sign-in-email-address"> 
+        <Form.Group controlId="sign-in-email-address"> Email Address
           <Form.Control type="email"  placeholder="Email" name="username" />
         </Form.Group>
 
 
-        <Form.Group className="mb-3" controlId="sign-in-password">
+        <Form.Group className="mb-3" controlId="sign-in-password"> Password
           <Form.Control type="password" size="lg" placeholder="Password" autoComplete="current-password" className="position-relative" />
         </Form.Group>
 
-        <Link className="linkStyles" to="#Explore">
+        <Link className="linkStyles" to="/explore">
         <Button variant="primary" size="lg"> Sign UP </Button>
         </Link>
 
