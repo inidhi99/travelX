@@ -1,0 +1,14 @@
+Footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#copyrights {
+    font-size: 10pt;
+    margin: 5px;
+}
+
+#creators {
+    font-size: 10pt;
+    margin: 5px;
+}

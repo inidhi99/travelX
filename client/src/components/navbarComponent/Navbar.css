@@ -10,6 +10,7 @@
     text-transform: uppercase;
     font-size: 10pt;
     font-weight: 600;
+    color: rgb(5, 82, 159); 
 }
 
 .link:hover {
