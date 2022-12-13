@@ -9,11 +9,10 @@ function NavbarComponent() {
       <Navbar bg="primary" variant="dark" fixed="bottom">
         <Container>
           <Nav className="me-auto">
-            <Nav.Link href="#Explore">Explore</Nav.Link>
-            <Nav.Link href="#add event">Document Trip</Nav.Link>
-            <Nav.Link href="#profile">Pofile</Nav.Link>
             {/* Temporary */}
             <Link className="linkStyles" to="./pages/postForm">Post</Link>
+            <Link className="linkStyles" to="./pages/Profile">Profile</Link>
+            <Link className="linkStyles" to="./pages/Explore">Explore</Link>
           </Nav>
         </Container>
       </Navbar>
