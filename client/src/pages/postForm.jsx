@@ -56,17 +56,10 @@ const PostForm = () => {
 
       {/* Input Form */}
       <FormControl sx={{ width: '25ch' }}>
-        <TextField
-          id="standard-basic"
-          label="Add Description"
-          variant="standard"
-        />
-
-        <TextField
-          id="standard-basic"
-          label="Add Location"
-          variant="standard"
-        />
+        <TextField id="standard-basic" label="Title" variant="standard" />
+        <TextField id="standard-basic" label="Country" variant="standard" />
+        <TextField id="standard-basic" label="City" variant="standard" />
+        <TextField id="standard-basic" label="Body" variant="standard" />
       </FormControl>
     </>
   );
