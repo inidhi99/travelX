@@ -1,7 +1,6 @@
 import React from 'react';
-import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom';
-import { Post } from '../post/Post';
+import Post from '../post/Post';
 
 
 const PostList = ({ posts }) => {
