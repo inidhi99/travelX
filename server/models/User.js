@@ -27,18 +27,18 @@ const userSchema = new Schema(
       required: true,
     },
     // set the array of data that adheres to the userSchema
-    following: {
+    following: [{
       type: Schema.Types.ObjectId,
       ref: 'User',
-    },
-    followers: {
+    }],
+    followers: [{
       type: Schema.Types.ObjectId,
       ref: 'User',
-    },
-    posts: {
+    }],
+    posts: [{
       type: Schema.Types.ObjectId,
       ref: 'Post',
-    },
+    }],
   },
   // set this to use virtual below
   {
