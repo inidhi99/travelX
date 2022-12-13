@@ -50,11 +50,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     posts: [Post]
-<<<<<<< HEAD
-    post(postId: ID): Post
-=======
     post(postId: ID!): Post
->>>>>>> 7a681ccc5f317fcdaef548ce1df8e074a698beb7
     myPosts(userId: ID): [Post]
     comments(postId: ID): [Comment]
     comment(commentId: ID): Comment

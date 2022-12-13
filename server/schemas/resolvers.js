@@ -13,13 +13,8 @@ const resolvers = {
     posts: async () => {
       return Post.find().sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
-<<<<<<< HEAD
     post: async (parent, {postId}) => {
       return Post.findOne({ _id: postId }).sort({ createdAt: -1 }).populate('comments').populate('reactions');
-=======
-    post: async (parent, { postId }) => {
-      return Post.findOne({ postId }).populate('comments').populate('reactions');
->>>>>>> 7a681ccc5f317fcdaef548ce1df8e074a698beb7
     },
     myPosts: async (parent, { userId }) => {
       //   const params = username ? { username } : {};
