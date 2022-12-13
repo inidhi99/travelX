@@ -13,6 +13,27 @@ import ImageListItem from '@mui/material/ImageListItem';
 // import Explore from './components/explore/explore';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// import ApolloProvider
+
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+//   ApolloProvider,
+//   createHttpLink,
+// } from "@apollo/client";
+// import { setContext } from "@apollo/client/link/context";
+
+// Create main GraphQL API endpoint
+// const httpLink = createHttpLink({
+//   uri: "/graphql",
+// });
+
+// execute the `authLink` middleware prior to making the request to our GraphQL API
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
+
 function App() {
   const [count, setCount] = useState(0);
 
