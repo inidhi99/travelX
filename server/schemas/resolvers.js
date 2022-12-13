@@ -43,6 +43,9 @@ const resolvers = {
       return { token, user };
     },
     addPost: async (parent, { title, body, city, country }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to preform this action');
+      }
       const post = await Post.create({
         title: title,
         body: body,
@@ -53,6 +56,9 @@ const resolvers = {
       });
     },
     addComment: async (parent, { commentText, postId }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to preform this action');
+      }
       const comment = await Comment.create({
         commentText: commentText,
         userId: context.user._id,
@@ -71,7 +77,6 @@ const resolvers = {
           new: true,
         }
       );
-
       console.log(updatedPost);
     },
     login: async (parent, { username, email, password }) => {
