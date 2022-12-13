@@ -11,6 +11,7 @@ import LoginForm from "./pages/LoginForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import { GlobalProvider } from "./context/globalContext";
 // import Explore from './components/explore/explore';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -38,27 +39,31 @@ function App() {
     // </>
     <div className="App">
       <Router>
-        <Header />
-        <NavbarComponent />
-        <Routes>
-          <Route className="mainSection" path="/" element={<Main />} />
-          <Route
-            className="postForm"
-            path="/pages/PostForm"
-            element={<PostForm />}
-          />
-          <Route
-            className="signupForm"
-            path="/pages/SignupForm"
-            element={<SignupForm />}
-          />
-          <Route
-            className="loginForm"
-            path="/pages/LoginForm"
-            element={<LoginForm />}
-          />
-        </Routes>
-        <Footer />
+        <>
+          <GlobalProvider>
+            <Header />
+            <NavbarComponent />
+            <Routes>
+              <Route className="mainSection" path="/" element={<Main />} />
+              <Route
+                className="postForm"
+                path="/pages/PostForm"
+                element={<PostForm />}
+              />
+              <Route
+                className="signupForm"
+                path="/pages/SignupForm"
+                element={<SignupForm />}
+              />
+              <Route
+                className="loginForm"
+                path="/pages/LoginForm"
+                element={<LoginForm />}
+              />
+            </Routes>
+            <Footer />
+          </GlobalProvider>
+        </>
       </Router>
     </div>
   );
