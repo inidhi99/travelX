@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PostList from "../components/postList/PostList";
-import { useGlobalContext } from '../../context/globalContext';
-import { UPDATE_POSTS } from '../../context/actions';
-import { QUERY_POSTS } from '../../utils/queries';
+import { useQuery } from '@apollo/client'
+import { useGlobalContext } from '../context/globalContext';
+import { UPDATE_POSTS } from '../context/actions';
+import { QUERY_POSTS } from '../utils/queries';
 import SearchBox from "../components/SearchBox/search-box.component";
 
 
