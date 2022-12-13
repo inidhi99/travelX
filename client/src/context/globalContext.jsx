@@ -1,6 +1,6 @@
 //usecontext, usereducer, createcontext
 import { createContext, useReducer, useContext } from "react";
-import reducer from './reducer'
+import {reducer} from './reducer'
 
 //create a context
 const GlobalContext = createContext();
