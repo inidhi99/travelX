@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../utils/mutations';
+import { ADD_POST } from '../utils/mutations';
 import axios from 'axios';
 import Images from '../components/images/Images';
 import CssBaseline from '@mui/material/CssBaseline';
