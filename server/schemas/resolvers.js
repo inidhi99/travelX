@@ -79,6 +79,31 @@ const resolvers = {
       );
       console.log(updatedPost);
     },
+    addReaction: async (parent, { postId, reactionType }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to preform this action');
+      }
+
+      const reaction = await Reaction.create({
+        userId: context.user._id,
+        username: context.user.username,
+        reactionType: reactionType,
+      });
+
+      const updatedPost = await Post.findOneAndUpdate(
+        { _id: postId },
+        {
+          $addToSet: {
+            reactions: reaction._id,
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      console.log(updatedPost);
+    },
     login: async (parent, { username, email, password }) => {
       const user = await User.findOne({ $or: [{ username }, { email }] });
 
