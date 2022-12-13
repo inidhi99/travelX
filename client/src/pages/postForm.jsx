@@ -36,19 +36,26 @@ const PostForm = () => {
   console.log(images);
 
   // textinput  state  variables
+
   const [title, setTitle] = useState('');
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
   const [body, setBody] = useState('');
 
-  // const handleInputChange = (e) => {
-  //   const { name, input } = e.target;
-  //   return name === 'title' ? setTitle(input)
-  // };
+  const [addPost, { error }] = useMutation(ADD_POST);
 
   // form submit function
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const { data } = await addPost({
+        variables: { title, country, city, body },
+      });
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
     alert('Your post has been submitted');
     setTitle('');
     setCountry('');
