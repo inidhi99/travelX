@@ -38,12 +38,6 @@ function NavbarComponent() {
       <Navbar bg="primary" variant="dark" fixed="bottom">
         <Container>
           <Nav className="me-auto">
-<<<<<<< HEAD
-            {/* Temporary */}
-            <Link className="linkStyles" to="./pages/postForm">Post</Link>
-            <Link className="linkStyles" to="./pages/Profile">Profile</Link>
-            <Link className="linkStyles" to="./pages/Explore">Explore</Link>
-=======
             {/* <Link className="linkStyles" to="./pages/postForm">Post</Link> */}
             <Link className="linkStyles" to="./pages/Profile">
               Profile
@@ -55,7 +49,6 @@ function NavbarComponent() {
               Post
             </Link>
 
->>>>>>> 97ad8e261b36a5c97fd2239ef8546351920b856f
             <Link className="linkStyles" to="./pages/LoginForm">
               login
             </Link>
