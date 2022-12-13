@@ -5,10 +5,13 @@ const users = require("./userSeeds");
 const comments = require("./commentSeeds");
 const reactions = require("./reactionSeeds");
 // const { ObjectId } = require('')
+const mongoose = require('mongoose')
+
 
 connection.on("error", (err) => err);
 
 connection.once("open", async () => {
+  mongoose.connection.db.dropDatabase()
   console.log("connected");
   await Post.deleteMany({});
   await User.deleteMany({});
