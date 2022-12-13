@@ -9,7 +9,7 @@ const typeDefs = gql`
     email: String
     password: String
     following: [User]
-    follwers: [User]
+    followers: [User]
     posts: [Post]
   }
 
@@ -50,16 +50,19 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     posts: [Post]
+    post(postId: ID!): Post
     myPosts(userId: ID): [Post]
     comments(postId: ID): [Comment]
+    comment(commentId: ID): Comment
     reactions(postId: ID): [Reaction]
+    reaction(reactionId: ID): Reaction
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addPost(title: String!, body: String!, city: String!, Country: String!): Post
+    login(email: String, password: String!, username:String): Auth
+    addPost(title: String!, body: String!, city: String!, country: String!): Post
     addComment(postId: ID!, commentText: String!): Post
     addReaction(postId: ID!, reactionType: String): Post
     removePost(postId: ID!): Post
