@@ -1,7 +1,6 @@
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import FormControl from '@mui/material/FormControl';
+
+import { Container, Form, InputGroup, Image } from 'react-bootstrap';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
