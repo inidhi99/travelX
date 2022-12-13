@@ -1,7 +1,13 @@
 import React from 'react';
-
-import { Container, Form, InputGroup, Image } from 'react-bootstrap';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
+
 // Upload photo
 // add description
 // add location - country city
@@ -10,35 +16,62 @@ import TextField from '@mui/material/TextField';
 // comments
 // reactions
 
+// Image files goes here
+const itemData = [
+  {
+    img: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'Breakfast',
+  },
+];
+
 const PostForm = () => {
   return (
     <>
-      <p>This is the post page</p>
+      <CssBaseline />
+      <Grid container>
+        {/* Image list  */}
+        <ImageList
+          sx={{
+            width: 500,
+            height: 500,
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 2,
+          }}
+        >
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </Grid>
 
-      <Container>
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-        <TextField id="filled-basic" label="Filled" variant="filled" />
-        <TextField id="standard-basic" label="Standard" variant="standard" />
+      {/* Input Form */}
+      <FormControl sx={{ width: '25ch' }}>
+        <TextField
+          id="standard-basic"
+          label="Add Description"
+          variant="standard"
+        />
 
-        <div style={{ display: 'block', width: 700, padding: 30 }}>
-          <h4>Image Goes Below</h4>
-          <Image
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png"
-            roundedCircle
-          />
-        </div>
-
-        <InputGroup size="lg">
-          <InputGroup.Text>Add Description</InputGroup.Text>
-          <Form.Control as="textarea" aria-label="With textarea" />
-        </InputGroup>
-        <InputGroup size="md">
-          <InputGroup.Text>Add Location</InputGroup.Text>
-          <Form.Control as="textarea" aria-label="With textarea" />
-        </InputGroup>
-      </Container>
+        <TextField
+          id="standard-basic"
+          label="Add Location"
+          variant="standard"
+        />
+      </FormControl>
     </>
   );
 };
 
 export default PostForm;
+
+// title countery city body

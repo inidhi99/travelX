@@ -13,7 +13,7 @@ function NavbarComponent() {
             <Nav.Link href="#add event">Document Trip</Nav.Link>
             <Nav.Link href="#profile">Pofile</Nav.Link>
             {/* Temporary */}
-            <Link className="linkStyles" to="./pages/postForm">
+            <Link className="linkStyles" to="./pages/PostForm">
               Post
             </Link>
 

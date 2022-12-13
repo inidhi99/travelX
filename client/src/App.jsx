@@ -8,6 +8,8 @@ import PostForm from './pages/PostForm';
 import SignupForm from './pages/SignupForm';
 import LoginForm from './pages/LoginForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 // import Explore from './components/explore/explore';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
