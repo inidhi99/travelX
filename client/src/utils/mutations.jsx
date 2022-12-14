@@ -1,69 +1,93 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
+{
+  mutation login(password: $password, username: $username) {
+    token
+    user {
+      _id
+      username
     }
   }
+}
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
+{
+  mutation addUser(username: $username, password: $password, email: $email) {
+    token
+    user {
+      _id
+      username
     }
   }
+}
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($postText: String!) {
-    addPost(postText: $postText) {
-      _id
-      postText
-      postAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
-    }
+{
+  mutation addPost(title: $title, body: $body, city: $city, country: $country) {
+    _id
+    title
+    body
+    country
+    city
   }
+}
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($postId: ID!, $commentText: String!) {
-    addComment(postId: $postId, commentText: $commentText) {
+{
+  mutation addComment(postId: $postId, commentText: $commentText) {
+    _id
+    userId
+    username
+    title
+    body
+    country
+    city
+    comments {
       _id
-      postText
-      postAuthor
+      username
+      userId
       createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentText
+    }
+    reactions {
+      _id
+      username
+      userId
+      reactionType
+      createdAt
     }
   }
+}
 `;
 
 export const ADD_REACTION = gql`
-  mutation addReaction($postId: ID!, $reactionText: String!) {
-    addReaction(postId: $postId, reactionText: $reactionText) {
+{
+  mutation addReaction(postId: $postId, reactionType: $reactionType) {
+    _id
+    userId
+    username
+    title
+    body
+    country
+    city
+    comments {
       _id
       userId
       username
-      type
+      commentText
       createdAt
-      }
+    }
+    reactions {
+      _id
+      userId
+      username
+      reactionType
+      createdAt
     }
   }
+}
 `;
