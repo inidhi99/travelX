@@ -26,30 +26,6 @@ export const ADD_USER = gql`
   }
 `;
 
-// export const ADD_POST = gql`
-// {
-//   mutation addPost(title: $title, body: $body, city: $city, country: $country) {
-//     _id
-//     title
-//     body
-//     country
-//     city
-//   }
-// }
-// `;
-
-// export const ADD_POST = gql`
-//   {
-//     mutation
-//     addPost(title: $title, body: $body, city: $city, country: $country) {
-//       _id
-//       title
-//       body
-//       city
-//       country
-//     }
-//   }
-// `;
 export const ADD_POST = gql`
   mutation addPost(
     $title: String
