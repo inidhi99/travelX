@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { GlobalProvider } from "./context/globalContext";
+import Profile from "./pages/profile";
 import {
   ApolloClient,
   InMemoryCache,
