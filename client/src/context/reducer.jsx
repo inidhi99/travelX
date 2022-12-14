@@ -26,3 +26,7 @@ export const reducer = (state, action) => {
       return state;
   }
 }
+
+export function usePostReducer(initialState) {
+  return useReducer(reducer, initialState)
+}

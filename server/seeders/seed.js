@@ -1,28 +1,27 @@
-const connection = require("../config/connection");
-const { User, Post, Comment, Reaction } = require("../models");
-const posts = require("./postSeeds");
-const users = require("./userSeeds");
-const comments = require("./commentSeeds");
-const reactions = require("./reactionSeeds");
+const connection = require('../config/connection');
+const { User, Post, Comment, Reaction } = require('../models');
+const posts = require('./postSeeds');
+const users = require('./userSeeds');
+const comments = require('./commentSeeds');
+const reactions = require('./reactionSeeds');
 // const { ObjectId } = require('')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
+connection.on('error', err => err);
 
-connection.on("error", (err) => err);
-
-connection.once("open", async () => {
-  mongoose.connection.db.dropDatabase()
-  console.log("connected");
+connection.once('open', async () => {
+  mongoose.connection.db.dropDatabase();
+  console.log('connected');
   await Post.deleteMany({});
   await User.deleteMany({});
 
-  await User.collection.insertMany(users);
+  await Promise.all(users.map(async user => await User.create(user)));
   const createdUsers = await User.find();
   //   console.log(createdUsers)
 
   const postsToInsert = [];
   // go through each post datum
-  posts.map(async (post) => {
+  posts.map(async post => {
     // get random user
     const randomIndex = Math.floor(Math.random() * createdUsers.length);
     const randomUser = createdUsers[randomIndex];
@@ -39,7 +38,7 @@ connection.once("open", async () => {
 
   // go through each comment datum
   const commentsToInsert = await Promise.all(
-    comments.map(async (comment) => {
+    comments.map(async comment => {
       // get random user
       const randomIndex = Math.floor(Math.random() * createdPosts.length);
       const randomPost = createdPosts[randomIndex];
@@ -70,7 +69,7 @@ connection.once("open", async () => {
 
   // go through each reaction datum
   const reactionsToInsert = await Promise.all(
-    reactions.map(async (reaction) => {
+    reactions.map(async reaction => {
       // get random user
       const randomIndex = Math.floor(Math.random() * createdPosts.length);
       const randomPost = createdPosts[randomIndex];
@@ -153,6 +152,6 @@ connection.once("open", async () => {
   const finalUsers = await User.find();
   console.log(finalUsers);
 
-  console.info("Seeding complete! 🌱");
+  console.info('Seeding complete! 🌱');
   process.exit(0);
 });

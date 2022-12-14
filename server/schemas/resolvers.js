@@ -13,7 +13,7 @@ const resolvers = {
     posts: async () => {
       return Post.find().sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
-    post: async (parent, {postId}) => {
+    post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId }).sort({ createdAt: -1 }).populate('comments').populate('reactions');
     },
     myPosts: async (parent, { userId }) => {
@@ -37,7 +37,6 @@ const resolvers = {
       //   const params = username ? { username } : {};
       return Reaction.findOne({ _id: reactionId }).sort({ createdAt: -1 });
     },
-
 
     // post: async (parent, { postId }) => {
     //   return post.findOne({ _id: postId });
@@ -79,7 +78,7 @@ const resolvers = {
         username: context.user.username,
         postId: postId,
       });
-      console.log(comment)
+      console.log(comment);
 
       const updatedPost = await Post.findOneAndUpdate(
         { _id: postId },
@@ -92,7 +91,8 @@ const resolvers = {
           new: true,
         }
       ).populate({
-        path:"comments", model: "Comment"
+        path: 'comments',
+        model: 'Comment',
       });
       return updatedPost;
     },
@@ -117,11 +117,12 @@ const resolvers = {
         {
           new: true,
         }
-        ).populate({
-          path:"reactions", model: "Reaction"
-        });
-        return updatedPost;
-      },
+      ).populate({
+        path: 'reactions',
+        model: 'Reaction',
+      });
+      return updatedPost;
+    },
     login: async (parent, { username, email, password }) => {
       const user = await User.findOne({ $or: [{ username }, { email }] });
 
@@ -132,7 +133,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError('Incorrect password credentials');
       }
 
       const token = signToken(user);

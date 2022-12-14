@@ -26,9 +26,7 @@
 
 // export default NavbarComponent;
 
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignupForm from "../../pages/SignupForm";
@@ -44,28 +42,34 @@ const NavbarComponent = () => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/">
-            Google Books Search
+          <Navbar.Brand as={Link} to="./pages/LoginForm">
+           Explore
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
-            <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/">
-                Search For Books
-              </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
-              {Auth.loggedIn() ? (
+          <Navbar.Brand as={Link} to="./pages/LoginForm">
+          Post
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="./pages/LoginForm">
+          Profile
+          </Navbar.Brand> 
+         
+         {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/saved">
-                    See Your Books
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Navbar.Brand as={Link} to="./pages/Explore">
+           Explore
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="./pages/postForm">
+          Post
+          </Navbar.Brand>
+          <Navbar.Brand as={Link} to="./pages/Profile">
+          Profile
+          </Navbar.Brand>
+          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
+
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
-            </Nav>
-          </Navbar.Collapse>
+           
         </Container>
       </Navbar>
       {/* set modal data up */}
@@ -84,6 +88,8 @@ const NavbarComponent = () => {
               </Nav>
             </Modal.Title>
           </Modal.Header>
+
+          
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey="login">
