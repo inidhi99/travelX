@@ -25,6 +25,18 @@ export default function UnauthorizedApp() {
             </Link>
           </Nav>
         </Container>
+        <Routes>
+          <Route
+            className="signupForm"
+            path="/pages/SignupForm"
+            element={<SignupForm />}
+          />
+          <Route
+            className="explore"
+            path="/pages/Explore"
+            element={<Explore />}
+          />
+        </Routes>
       </Navbar>
       {/* Insert image logo here */}
       <Footer />
