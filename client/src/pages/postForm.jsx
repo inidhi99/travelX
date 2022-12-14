@@ -26,9 +26,9 @@ const PostForm = () => {
   });
 
   // const useMountEffect = (fetchAPI) => {
-  useEffect(() => {
-    fetchAPI({});
-  }, []);
+  // useEffect(() => {
+  //   fetchAPI({});
+  // }, []);
 
   // useMountEffect(fetchAPI);
   // console.log(images);
@@ -132,33 +132,19 @@ const PostForm = () => {
           id="standard-basic"
           variant="standard"
         />
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': {
-              m: 1,
-              width: '30ch',
-            },
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField
-            input={body}
-            name="body"
-            value={body}
-            onChange={(e) => setCity(e.target.value)}
-            type="text"
-            placeholder="Enter a post"
-            sx={{ p: 0.5 }}
-            id="outlined-multiline-static"
-            multiline
-            rows={4}
-          />
-        </Box>
+
+        <TextField
+          input={body}
+          name="body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          type="text"
+          placeholder="Enter a post"
+          sx={{ p: 0.5 }}
+          id="outlined-multiline-static"
+          multiline
+          rows={4}
+        />
       </FormControl>
       <Button variant="contained" size="small" onClick={handleFormSubmit}>
         Submit
