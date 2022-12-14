@@ -23,9 +23,9 @@ function NavbarComponent() {
             <Link className="linkStyles" to="./pages/PostForm">
               Post
             </Link>
-              <Link className="linkStyles" to="./pages/LoginForm">
+              {/* <Link className="linkStyles" to="./pages/LoginForm">
                 login
-              </Link>
+              </Link> */}
               <Link className="linkStyles" to="./pages/LogoutPage">
                 Logout
               </Link>
