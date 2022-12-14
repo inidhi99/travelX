@@ -11,3 +11,17 @@ h1 {
     padding-left: 8px;
     color: rgb(252, 249, 249);
 }
+
+#btn {
+    margin: 25px;
+    border: none;
+    background-color:black;
+    color:  rgb(177, 228, 255);
+}
+
+#btn:hover {
+    background-color: rgb(1, 75, 115);
+    color: white;
+    transition: .3s;
+    scale: 102%
+}
