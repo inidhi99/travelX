@@ -1,20 +1,22 @@
 import NavbarComponent from "../navbarComponent/NavbarComponent";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import PostForm from "../../pages/PostForm";
 import Profile from "../../pages/Profile";
 import Explore from "../../pages/Explore";
 import SignupForm from "../../pages/SignupForm";
 import LogoutPage from "../../pages/LogoutPage";
+import { QUERY_ME } from "../../utils/queries";
 
 function AuthorizedApp() {
+const {loading,data}= useQuery(QUERY_ME)
+console.log(data);
+
   return (
     <div>
       <Header/>
-      <h3>Welcome Back 'User'</h3>
+      <h3>`Welcome Back`</h3>
       <NavbarComponent />
         <Routes>
           <Route className="explore" path="/" element={<Explore />} />

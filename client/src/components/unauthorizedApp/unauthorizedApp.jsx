@@ -4,6 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 import "../navbarComponent/Navbar.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
+import LoginForm from '../../pages/LoginForm'
+import Explore from "../../pages/Explore";
 
 export default function UnauthorizedApp() {
   return (
@@ -20,16 +22,16 @@ export default function UnauthorizedApp() {
             <Link className="linkStyles" to="./pages/Explore">
               Explore
             </Link>
-            <Link className="linkStyles" to="./pages/SignupForm">
-              Signup
+            <Link className="linkStyles" to="./pages/LoginForm">
+              Login/ Signup
             </Link>
           </Nav>
         </Container>
         <Routes>
           <Route
-            className="signupForm"
-            path="/pages/SignupForm"
-            element={<SignupForm />}
+            className="loginForm"
+            path="/pages/LoginForm"
+            element={<LoginForm />}
           />
           <Route
             className="explore"
