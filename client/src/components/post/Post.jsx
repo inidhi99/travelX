@@ -27,7 +27,7 @@ const Post = ({ post }) => {
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>
+        <Card.Text className="text-light">
 		<span>{city}, {country}</span>
 		<div>{body}</div>
 		<div>{createdAt}</div>
