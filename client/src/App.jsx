@@ -16,7 +16,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
 import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
-import auth from "./utils/auth";
+import Auth from "./utils/auth";
 
 // Create main GraphQL API endpoint
 const httpLink = new HttpLink({
@@ -57,44 +57,7 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
             <GlobalProvider>
-<<<<<<< HEAD
-              <Header />
-              <NavbarComponent />
-              <Routes>
-                <Route className="mainSection" exact path="/" element={<Main />} />
-                <Route
-                  className="postForm"
-                  path="/pages/PostForm"
-                  element={<PostForm />}
-                />
-                <Route
-                  className="signupForm"
-                  path="/pages/SignupForm"
-                  element={<SignupForm />}
-                />
-                <Route
-                  className="loginForm"
-                  path="/pages/LoginForm"
-                  element={<LoginForm />}
-                />
-                <Route
-                  className="explore"
-                  path="/pages/explore"
-                  element={<Explore />}
-                />
-                <Route 
-                path="/me" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/profiles/:username"
-                element={<Profile />}
-              />
-              </Routes>
-              <Footer />
-=======
               <AuthorizedApp />
->>>>>>> 3a4456fd62c2da8ec97743c60e98252a18dc1db9
             </GlobalProvider>
         </Router>
       </ApolloProvider>
