@@ -49,15 +49,15 @@ none
 
 Feel free to contact any of the contributors of this project via github profiles to the right.
 
-## Credits
+## Contributors
 
-- Bria
-- Evince Edouard
-- Igor Korman
-- Jeff Grasso
-- Jules Joseph
-- Nidhi Patel
-- Valeria Alarcon
+(Bria)[https://github.com/briabr]  
+(Evince Edouard)[https://github.com/EEdouard28]  
+(Igor Korman)[https://github.com/ikorman12]  
+(Jeff Grasso)[https://github.com/jeffgrasso42]  
+(Jules Joseph)[https://github.com/JulesJ93]  
+(Nidhi Patel)[https://github.com/inidhi99]  
+(Valeria Alarcon)[https://github.com/valeriaalarcon1]
 
 [reactjs-url]: https://reactjs.org/
 [reactjs.org]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
