@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
+
 function NavbarComponent() {
   // const [loggedIn, setLoggedIn] = useState(false);
   // const login = () => setLoggedIn(true);
@@ -14,7 +15,7 @@ function NavbarComponent() {
         <Container>
           <Nav className="me-auto">
             {/* <Link className="linkStyles" to="./pages/postForm">Post</Link> */}
-            <Link className="linkStyles" to="./pages/Profile">
+            <Link className="linkStyles" to="./me">
               Profile
             </Link>
             <Link className="linkStyles" to="./pages/Explore">

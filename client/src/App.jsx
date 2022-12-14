@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { GlobalProvider } from "./context/globalContext";
+import Profile from "./pages/profile";
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,7 +16,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
 import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
-import auth from "./utils/auth";
+import Auth from "./utils/auth";
 
 // Create main GraphQL API endpoint
 const httpLink = new HttpLink({

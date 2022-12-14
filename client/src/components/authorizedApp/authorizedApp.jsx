@@ -24,11 +24,11 @@ function AuthorizedApp() {
             path="/pages/PostForm"
             element={<PostForm />}
           />
-          <Route
+          {/* <Route
             className="profile"
             path="/pages/Profile"
             element={<Profile />}
-          />
+          /> */}
           <Route
             className="signupForm"
             path="/pages/SignupForm"
@@ -49,6 +49,14 @@ function AuthorizedApp() {
           path='/pages/LogoutPage'
           element={<LogoutPage/>}
           />
+          <Route 
+                path="/me" 
+                element={<Profile />}
+              />
+              <Route 
+                path="/profiles/:username"
+                element={<Profile />}
+              />
       </Routes>
         <Footer />
     </div>
