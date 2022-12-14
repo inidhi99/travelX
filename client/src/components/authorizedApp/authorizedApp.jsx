@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PostForm from "../../pages/PostForm";
 import Profile from "../../pages/Profile";
 import Explore from "../../pages/Explore";
+import LoginForm from "../../pages/LoginForm"
 import SignupForm from "../../pages/SignupForm";
 import LogoutPage from "../../pages/LogoutPage";
 import { QUERY_ME } from "../../utils/queries";
@@ -39,6 +40,11 @@ console.log(data);
             className="explore"
             path="/pages/Explore"
             element={<Explore />}
+          />
+           <Route
+            className="login"
+            path="/pages/LoginForm"
+            element={<LoginForm />}
           />
           <Route
           className='logout'

@@ -30,7 +30,7 @@ const Explore = () => {
 
   return (
     <div className="container">
-      hello
+      Explore the World!!
       <SearchBox className="posts-search-box" placeholder="search posts" onChangeHandler={onSearchChange} />
       <PostList posts={filteredPosts} />
     </div>
