@@ -20,7 +20,7 @@ const Post = ({ post }) => {
 				<h2>{title}</h2>
 				<h3>{city}</h3>
 				<h5>{country}</h5>
-				<Link to={`/${userId}`}>
+				<Link to={`/profiles/${username}`}>
 						<p>{username}</p>
 				</Link>
 				<p>{body}</p>

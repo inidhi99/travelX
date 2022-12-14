@@ -13,13 +13,13 @@ import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 const Profile = () => {
 
 
-  const { profileId } = useParams();
+  const { username } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
-    profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
+    username ? QUERY_SINGLE_USER : QUERY_ME,
     {
-      variables: { profileId: profileId },
+      variables: { username: username },
     }
   );
   // userId ? QUERY_SINGLE_PROFILE : QUERY_ME,
@@ -27,20 +27,21 @@ const Profile = () => {
   //     variables: { userId: userId },
   //   }
   // );
-console.log(Auth.loggedIn())
+
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
-  const profile = data?.me || data?.profile || {};
-console.log(profile)
+  const profile = data?.me || data?.user || {};
+  
+
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
-    return <Navigate to="/me" />;
-  }
+  // if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
+  //   return <Navigate to="/me" />;
+  // }
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
+  if (!profile?.username) {
     return (
       <h4>
         You need to be logged in to see your profile page. Use the navigation
@@ -52,11 +53,31 @@ console.log(profile)
   return (
     <div>
       <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
+        {profile.username}
       </h2>
+      <h2 className="card-header">
+        {profile.email}
+      </h2>
+      <h2>Followers</h2>
+      {profile.followers.length && profile.followers.map((follower, index) => {
+        return (<h3 key={index}>
+          {follower.username}
+        </h3>)
+      })}
+      <h2>Following</h2>
+      {profile.following.length && profile.following.map((followee, index) => {
+        return (<h3 key={index}>
+          {followee.username}
+        </h3>)
+      })}
+      <h2>Posts</h2>
+      {profile.posts.length && profile.posts.map((post, index) => {
+        return (<h3 key={index}>
+          {post.title}
+        </h3>)
+      })}
 
-      {profile.skills?.length > 0 && (
+      {/* {profile.skills?.length > 0 && (
         <SkillsList
           skills={profile.skills}
           isLoggedInUser={!profileId && true}
@@ -65,7 +86,7 @@ console.log(profile)
 
       <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <SkillForm profileId={profile._id} />
-      </div>
+      </div> */}
     </div>
   );
 };

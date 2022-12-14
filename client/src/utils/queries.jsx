@@ -46,8 +46,8 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_SINGLE_USER = gql`
-{
-  query user(username: $username) {
+query user($username: String!){
+  user(username: $username) {
     _id
     username
     email
@@ -193,7 +193,7 @@ export const QUERY_SINGLE_REACTION = gql`
 `;
 
 export const QUERY_ME = gql`
-{
+
   query me {
     me {
       _id
@@ -234,5 +234,5 @@ export const QUERY_ME = gql`
       }
     }
   }
-}
+
 `;
