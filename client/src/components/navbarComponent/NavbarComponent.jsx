@@ -26,13 +26,16 @@
 
 // export default NavbarComponent;
 
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function NavbarComponent() {
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const login = () => setLoggedIn(true);
+  // const logout = () => setLoggedIn(false);
   return (
     <>
       <Navbar bg="primary" variant="dark" fixed="bottom">
@@ -48,10 +51,12 @@ function NavbarComponent() {
             <Link className="linkStyles" to="./pages/PostForm">
               Post
             </Link>
-
-            <Link className="linkStyles" to="./pages/LoginForm">
-              login
-            </Link>
+              <Link className="linkStyles" to="./pages/LoginForm">
+                login
+              </Link>
+              <Link className="linkStyles" to="./pages/LogoutPage">
+                Logout
+              </Link>
           </Nav>
         </Container>
       </Navbar>

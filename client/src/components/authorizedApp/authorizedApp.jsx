@@ -10,6 +10,7 @@ import Profile from "../../pages/Profile";
 import Explore from "../../pages/Explore";
 import SignupForm from "../../pages/SignupForm";
 import { Link } from "react-router-dom";
+import LogoutPage from "../../pages/LogoutPage";
 
 function AuthorizedApp() {
   return (
@@ -39,9 +40,13 @@ function AuthorizedApp() {
             path="/pages/Explore"
             element={<Explore />}
           />
+          <Route
+          className='logout'
+          path='/pages/LogoutPage'
+          element={<LogoutPage/>}
+          />
       </Routes>
         <Footer />
-        <Main />
     </div>
   );
 }
