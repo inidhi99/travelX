@@ -25,3 +25,16 @@ h1 {
     transition: .3s;
     scale: 102%
 }
+
+.card.title {
+    color: rgb(247, 249, 250);
+}
+
+.card.text {
+    color: white;
+}
+
+.card.body {
+    color: white;
+
+}
