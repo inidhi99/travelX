@@ -36,7 +36,7 @@ const PostForm = () => {
   const [body, setBody] = useState('');
 
   // this is breaking
-  // const [addPost, { error }] = useMutation(ADD_POST);
+  const [addPost, { error }] = useMutation(ADD_POST);
 
   // form submit function
   const handleFormSubmit = async (e) => {
@@ -73,12 +73,7 @@ const PostForm = () => {
         >
           <ImageListItem>
             {/* temporary button for images will not show on final */}
-            <Button
-              className="clickBtn"
-              onClick={fetchAPI}
-              variant="contained"
-              size="small"
-            >
+            <Button onClick={fetchAPI} variant="contained" size="small">
               Click
             </Button>
             <div className="photos">
@@ -150,12 +145,7 @@ const PostForm = () => {
             />
           </Box>
         </FormControl>
-        <Button
-          className="submitBtn"
-          variant="contained"
-          size="small"
-          onClick={handleFormSubmit}
-        >
+        <Button variant="contained" size="small" onClick={handleFormSubmit}>
           Submit
         </Button>
       </Container>
