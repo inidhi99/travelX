@@ -21,12 +21,13 @@ const PostForm = () => {
     );
 
     const data = await response.data;
-    setImages(data);
+
+    setImages(data.results);
   };
   useEffect(() => {
     fetchAPI();
   }, []);
-  console.log(images);
+  // console.log(images);
 
   // textinput  state  variables
 
@@ -77,7 +78,7 @@ const PostForm = () => {
               Click
             </Button>
             <div className="photos">
-              {images.length > 0 && <Images images={images.results} />}
+              {images.length > 0 && <Images images={images} />}
             </div>
           </ImageListItem>
         </ImageList>
