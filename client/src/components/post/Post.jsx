@@ -11,7 +11,8 @@ const Post = ({ post }) => {
 		body,
 		userId,
 		username, 
-		city, 
+		city,
+		image, 
 		country, 
 		comments, 
 		reactions, 
@@ -19,9 +20,9 @@ const Post = ({ post }) => {
 	} = post
 
 	return (
-   <Card >
+  <Card >
 		<Link to={`/profiles/${username}`}>{username}</Link>
-      <div><Card.Img variant="top" src="holder.js/100px180" /></div>
+      <div className="post-image"><Card.Img variant="top" src={image} /></div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
