@@ -20,11 +20,8 @@ const Post = ({ post }) => {
 
 	return (
    <Card >
-<Link to={`/profiles/${username}`}>
-	<p>{username}</p>
-				</Link>
-	 {/* <Link to={`/${userId}`}> <p>{username}</p> </Link> */}
-      <Card.Img variant="top" src="holder.js/100px180" />
+		<Link to={`/profiles/${username}`}>{username}</Link>
+      <div><Card.Img variant="top" src="holder.js/100px180" /></div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text className="text-light">
@@ -32,6 +29,12 @@ const Post = ({ post }) => {
 		<div>{body}</div>
 		<div>{createdAt}</div>
         </Card.Text>
+        <Card.Text>
+					<span>{body}</span>
+				</Card.Text>
+        <Card.Text>
+					<span>{createdAt}</span>
+				</Card.Text>
       </Card.Body>
     </Card>
 	
