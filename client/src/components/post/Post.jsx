@@ -20,7 +20,10 @@ const Post = ({ post }) => {
 
 	return (
    <Card >
-	 <Link to={`/${userId}`}> <p>{username}</p> </Link>
+<Link to={`/profiles/${username}`}>
+	<p>{username}</p>
+				</Link>
+	 {/* <Link to={`/${userId}`}> <p>{username}</p> </Link> */}
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
