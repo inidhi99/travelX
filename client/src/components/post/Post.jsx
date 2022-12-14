@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-
+// Component for rendering individual posts
 const Post = ({ post }) => {
+	// destructure post object into component varibles
 	const { 
 		_id,
 		title, 
@@ -36,7 +37,6 @@ const Post = ({ post }) => {
 				</Card.Text>
       </Card.Body>
     </Card>
-	
 	)
 };
 
