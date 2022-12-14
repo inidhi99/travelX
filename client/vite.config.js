@@ -13,9 +13,9 @@ export default defineConfig({
       // '/foo': 'http://localhost:4567',
       // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
       '/graphql': {
-        target: 'http://127.0.0.1:3001',
+        target: 'http://127.0.0.1:3001/graphql',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/graphql/, ''),
+        // rewrite: path => path.replace(/^\/graphql/, ''),
         secure: false,
         ws: true,
       },

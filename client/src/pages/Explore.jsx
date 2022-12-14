@@ -15,9 +15,12 @@ const Explore = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
 
     useEffect(() => {
-      const newFilteredPosts = data.filter(post => post.city.toLocaleLowerCase().includes(searchField));
+      if (data) {
+        const newFilteredPosts = data.posts.filter(post => post.city.toLocaleLowerCase().includes(searchField));
 
-      setFilteredPosts(newFilteredPosts)
+        setFilteredPosts(newFilteredPosts)
+      }
+
     }, [data, searchField]);
 
     const onSearchChange = e => {
@@ -27,6 +30,7 @@ const Explore = () => {
 
   return (
     <div className="container">
+      hello
       <SearchBox className="posts-search-box" placeholder="search posts" onChangeHandler={onSearchChange} />
       <PostList posts={filteredPosts} />
     </div>
