@@ -1,6 +1,5 @@
 import NavbarComponent from "../navbarComponent/NavbarComponent";
 import Header from "../header/Header";
-import Main from "../main/MainComp";
 import Footer from "../footer/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,7 +8,6 @@ import PostForm from "../../pages/PostForm";
 import Profile from "../../pages/Profile";
 import Explore from "../../pages/Explore";
 import SignupForm from "../../pages/SignupForm";
-import { Link } from "react-router-dom";
 import LogoutPage from "../../pages/LogoutPage";
 
 function AuthorizedApp() {
@@ -35,11 +33,11 @@ function AuthorizedApp() {
             path="/pages/SignupForm"
             element={<SignupForm />}
           />
-          {/* <Route
+          <Route
             className="explore"
             path="/pages/Explore"
             element={<Explore />}
-          /> */}
+          />
           <Route
           className='logout'
           path='/pages/LogoutPage'

@@ -1,14 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
-// import NavbarComponent from './components/navbar/NavbarComponent';
-import NavbarComponent from "./components/navbarComponent/NavbarComponent";
-import Main from "./components/main/MainComp";
-import PostForm from "./pages/PostForm";
-import SignupForm from "./pages/SignupForm";
-import LoginForm from "./pages/LoginForm";
-import Explore from './pages/Explore'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
