@@ -64,8 +64,8 @@ const PostForm = () => {
       <Container maxWidth="sm">
         <ImageList
           sx={{
-            width: 100,
-            height: 100,
+            // width: 100,
+            // height: 100,
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
@@ -74,12 +74,19 @@ const PostForm = () => {
         >
           <ImageListItem>
             {/* temporary button for images will not show on final */}
-            <Button onClick={fetchAPI} variant="contained" size="small">
-              Click
-            </Button>
-            <div className="photos">
+            <div
+              className="photos"
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               {images.length > 0 && <Images images={images} />}
             </div>
+            {/* <Button onClick={fetchAPI} variant="contained" size="small">
+              Click
+            </Button> */}
           </ImageListItem>
         </ImageList>
 
