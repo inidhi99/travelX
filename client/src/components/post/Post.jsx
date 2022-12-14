@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 
 const Post = ({ post }) => {
 	const { 
@@ -16,6 +19,7 @@ const Post = ({ post }) => {
 	} = post
 
 	return (
+<<<<<<< HEAD
 		<div className="card px-1 py-1">
 				<h2>{title}</h2>
 				<h3>{city}</h3>
@@ -29,6 +33,21 @@ const Post = ({ post }) => {
 				{/* <p>{reactions}</p> */}
 				{/* <p>{comments}</p> */}
 		</div>
+=======
+   <Card >
+	 <Link to={`/${userId}`}> <p>{username}</p> </Link>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>
+		<span>{city}, {country}</span>
+		<div>{body}</div>
+		<div>{createdAt}</div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+	
+>>>>>>> 3a4456fd62c2da8ec97743c60e98252a18dc1db9
 	)
 };
 

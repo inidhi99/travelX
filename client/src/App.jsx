@@ -1,14 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
-// import NavbarComponent from './components/navbar/NavbarComponent';
-import NavbarComponent from "./components/navbarComponent/NavbarComponent";
-import Main from "./components/main/MainComp";
-import PostForm from "./pages/PostForm";
-import SignupForm from "./pages/SignupForm";
-import LoginForm from "./pages/LoginForm";
-import Explore from './pages/Explore'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -23,6 +14,9 @@ import {
 } from '@apollo/client';
 
 import { setContext } from "@apollo/client/link/context";
+import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
+import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
+import auth from "./utils/auth";
 
 // Create main GraphQL API endpoint
 const httpLink = new HttpLink({
@@ -53,30 +47,17 @@ const client = new ApolloClient({
 function App() {
   const [count, setCount] = useState(0);
 
+  const [loggedIn, setLoggedIn] = useState(false)
+  const login = () => setLoggedIn(true);
+  const logout =() => setLoggedIn(false)
+
+
   return (
-    // <>
-    //   <AuthorizedApp />
-    //   {/* <div className="App">
-    //     <Router>
-    //       <Header />
-    //       <NavbarComponent />
-    //       <Routes>
-    //         <Route className="mainSection" path="/" element={<Main />} />
-    //         <Route
-    //           className="postForm"
-    //           path="/pages/PostForm"
-    //           element={<PostForm />}
-    //         />
-    //       </Routes>
-    //       <Footer />
-    //     </Router>
-    //   </div> */}
-    // </>
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
-          <>
             <GlobalProvider>
+<<<<<<< HEAD
               <Header />
               <NavbarComponent />
               <Routes>
@@ -111,8 +92,10 @@ function App() {
               />
               </Routes>
               <Footer />
+=======
+              <AuthorizedApp />
+>>>>>>> 3a4456fd62c2da8ec97743c60e98252a18dc1db9
             </GlobalProvider>
-          </>
         </Router>
       </ApolloProvider>
     </div>
