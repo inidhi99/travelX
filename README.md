@@ -1,10 +1,10 @@
 ### Built With
 
-- [![React][reactjs.org]][reactjs-url]
-- [![NodeJS][node.js]][nodejs-url]
-- [![Express][expressjs.com]][expressjs-url]
-- [![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]
-- [![Stripe][stripe.com]][stripe-url]
+[![React][reactjs.org]][reactjs-url]  
+[![NodeJS][node.js]][nodejs-url]  
+[![Express][expressjs.com]][expressjs-url]  
+[![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]  
+[![Stripe][stripe.com]][stripe-url]  
 
 # TravelX
 
@@ -47,7 +47,7 @@ none
 
 ## Questions
 
-Feel free to contact any of the contributors of this project via github profiles to the right.
+Feel free to contact any of the contributors of this project via github profiles linked below.
 
 ## Contributors
 
