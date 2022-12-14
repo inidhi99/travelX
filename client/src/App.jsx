@@ -21,6 +21,7 @@ import {
 } from '@apollo/client';
 
 import { setContext } from "@apollo/client/link/context";
+import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
 
 // Create main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,31 +47,19 @@ const client = new ApolloClient({
 function App() {
   const [count, setCount] = useState(0);
 
+  const [loggedIn, setLoggedIn] = useState(false)
+  const login = () => setLoggedIn(true);
+  const logout =() => setLoggedIn(false)
+
+
   return (
-    // <>
-    //   <AuthorizedApp />
-    //   {/* <div className="App">
-    //     <Router>
-    //       <Header />
-    //       <NavbarComponent />
-    //       <Routes>
-    //         <Route className="mainSection" path="/" element={<Main />} />
-    //         <Route
-    //           className="postForm"
-    //           path="/pages/PostForm"
-    //           element={<PostForm />}
-    //         />
-    //       </Routes>
-    //       <Footer />
-    //     </Router>
-    //   </div> */}
-    // </>
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
           <>
             <GlobalProvider>
-              <Header />
+              <AuthorizedApp />
+              {/* <Header />
               <NavbarComponent />
               <Routes>
                 <Route className="mainSection" path="/" element={<Main />} />
@@ -95,7 +84,7 @@ function App() {
                   element={<Explore />}
                 />
               </Routes>
-              <Footer />
+              <Footer /> */}
             </GlobalProvider>
           </>
         </Router>
