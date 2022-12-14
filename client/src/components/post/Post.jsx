@@ -26,8 +26,8 @@ const Post = ({ post }) => {
 				<p>{body}</p>
 				<p>{createdAt}</p>
 				{/* image goes here */}
-				<p>{reactions}</p>
-				<p>{comments}</p>
+				{/* <p>{reactions}</p> */}
+				{/* <p>{comments}</p> */}
 		</div>
 	)
 };

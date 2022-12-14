@@ -2,6 +2,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+const cors = require('cors');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -14,6 +15,11 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+const corsConfig = {
+  origin: 'http://127.0.0.1:5173',
+  credentials: true,
+};
+app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
