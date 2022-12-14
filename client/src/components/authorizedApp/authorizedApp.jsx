@@ -12,12 +12,14 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 function AuthorizedApp() {
+  // const { username } = useParams();
   const { loading, data } = useQuery(QUERY_ME);
+  const profile = data?.me || data?.user || {};
 
   return (
     <div>
       <Header />
-      <h3>`Welcome Back`</h3>
+      <h3>Welcome Back {profile.username} !</h3>
       <NavbarComponent />
       <Routes>
         <Route className="explore" path="/" element={<Explore />} />
