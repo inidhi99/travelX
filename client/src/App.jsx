@@ -10,8 +10,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-  HttpLink
-} from '@apollo/client';
+  HttpLink,
+} from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
 import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
@@ -21,16 +21,16 @@ import Auth from "./utils/auth";
 // Create main GraphQL API endpoint
 const httpLink = new HttpLink({
   uri: "/graphql",
-  credentials: "include"
+  credentials: "include",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-      "Access-Control-Allow-Origin": "*"
+      authorization: token ? `Bearer ${token}` : "",
+      "Access-Control-Allow-Origin": "*",
     },
   };
 });
@@ -40,25 +40,22 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
   fetchOptions: {
-    mode: "no-cors"
-  }
+    mode: "no-cors",
+  },
 });
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const [loggedIn, setLoggedIn] = useState(false)
-  const login = () => setLoggedIn(true);
-  const logout =() => setLoggedIn(false)
-
-
   return (
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
-            <GlobalProvider>
-              <AuthorizedApp />
-            </GlobalProvider>
+          <GlobalProvider>
+            {Auth.loggedIn() ? (
+            <AuthorizedApp />
+            ) : (
+            <UnauthorizedApp/>
+            )}
+          </GlobalProvider>
         </Router>
       </ApolloProvider>
     </div>
