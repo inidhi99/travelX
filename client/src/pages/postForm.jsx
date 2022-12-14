@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
 import axios from 'axios';
 import Images from '../components/images/Images';
 import Button from '@mui/material/Button';
-
-import Container from 'react-bootstrap/Container';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -60,32 +60,43 @@ const PostForm = () => {
 
   return (
     <>
-      <Container id="main-container" className="d-grid h-100">
-        <Grid container>
-          <ImageList
-            sx={{
-              width: 500,
-              height: 500,
-              overflow: 'hidden',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 2,
-            }}
-          >
-            <ImageListItem>
-              <button className="btn btn-primary btn-sm" onClick={fetchAPI}>
-                Click
-              </button>
-              <div className="photos">
-                {images.length > 0 && <Images images={images} />}
-              </div>
-            </ImageListItem>
-          </ImageList>
-        </Grid>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <ImageList
+          sx={{
+            width: 500,
+            height: 500,
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 2,
+          }}
+        >
+          <ImageListItem>
+            <Button
+              className="clickBtn"
+              onClick={fetchAPI}
+              variant="contained"
+              size="small"
+            >
+              Click
+            </Button>
+            <div className="photos">
+              {images.length > 0 && <Images images={images} />}
+            </div>
+          </ImageListItem>
+        </ImageList>
 
         {/* Input Form */}
-        <FormControl>
+        <FormControl
+          sx={{
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <TextField
             input={title}
             name="title"
@@ -139,15 +150,15 @@ const PostForm = () => {
               rows={4}
             />
           </Box>
-          <Button
-            className="submitBtn"
-            variant="contained"
-            size="small"
-            onClick={handleFormSubmit}
-          >
-            Submit
-          </Button>
         </FormControl>
+        <Button
+          className="submitBtn"
+          variant="contained"
+          size="small"
+          onClick={handleFormSubmit}
+        >
+          Submit
+        </Button>
       </Container>
     </>
   );
