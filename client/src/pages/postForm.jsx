@@ -25,12 +25,11 @@ const PostForm = () => {
     setImages(data.results);
   };
   useEffect(() => {
-    fetchAPI();
+    // fetchAPI();
   }, []);
   // console.log(images);
 
   // textinput  state  variables
-
   const [title, setTitle] = useState('');
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
@@ -51,7 +50,7 @@ const PostForm = () => {
     } catch (err) {
       console.error(err);
     }
-    alert('Your post has been submitted');
+    // alert('Your post has been submitted');
     setTitle('');
     setCountry('');
     setCity('');
@@ -89,74 +88,73 @@ const PostForm = () => {
             </Button> */}
           </ImageListItem>
         </ImageList>
-
-        {/* Input Form */}
-        <FormControl
+      </Container>
+      {/* Input Form */}
+      <FormControl
+        sx={{
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <TextField
+          input={title}
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Enter A Title..."
+          id="standard-basic"
+          variant="standard"
+        />
+        <TextField
+          input={country}
+          name="country"
+          onChange={(e) => setCountry(e.target.value)}
+          type="text"
+          placeholder="Provide A Country"
+          id="standard-basic"
+          variant="standard"
+        />
+        <TextField
+          input={city}
+          name="city"
+          onChange={(e) => setCity(e.target.value)}
+          type="text"
+          placeholder="Provide A City"
+          id="standard-basic"
+          variant="standard"
+        />
+        <Box
+          component="form"
           sx={{
-            overflow: 'hidden',
+            '& .MuiTextField-root': {
+              m: 1,
+              width: '30ch',
+            },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
           }}
+          noValidate
+          autoComplete="off"
         >
           <TextField
-            input={title}
-            name="title"
-            onChange={(e) => setTitle(e.target.value)}
-            type="text"
-            placeholder="Enter A Title..."
-            id="standard-basic"
-            variant="standard"
-          />
-          <TextField
-            input={country}
-            name="country"
-            onChange={(e) => setCountry(e.target.value)}
-            type="text"
-            placeholder="Provide A Country"
-            id="standard-basic"
-            variant="standard"
-          />
-          <TextField
-            input={city}
-            name="city"
+            input={body}
+            name="body"
             onChange={(e) => setCity(e.target.value)}
             type="text"
-            placeholder="Provide A City"
-            id="standard-basic"
-            variant="standard"
+            placeholder="Enter a post"
+            sx={{ p: 0.5 }}
+            id="outlined-multiline-static"
+            multiline
+            rows={4}
           />
-          <Box
-            component="form"
-            sx={{
-              '& .MuiTextField-root': {
-                m: 1,
-                width: '30ch',
-              },
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              input={body}
-              name="body"
-              onChange={(e) => setCity(e.target.value)}
-              type="text"
-              placeholder="Enter a post"
-              sx={{ p: 0.5 }}
-              id="outlined-multiline-static"
-              multiline
-              rows={4}
-            />
-          </Box>
-        </FormControl>
-        <Button variant="contained" size="small" onClick={handleFormSubmit}>
-          Submit
-        </Button>
-      </Container>
+        </Box>
+      </FormControl>
+      <Button variant="contained" size="small" onClick={handleFormSubmit}>
+        Submit
+      </Button>
     </>
   );
 };

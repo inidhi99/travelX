@@ -34,10 +34,10 @@ export const ADD_USER = gql`
 
 export const ADD_POST = gql`
   mutation addPost(
-    $title: String
-    $body: String
-    $city: String
-    $country: String
+    $title: String!
+    $body: String!
+    $city: String!
+    $country: String!
   ) {
     addPost(title: $title, body: $body, city: $city, country: $country) {
       _id
