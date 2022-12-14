@@ -19,7 +19,7 @@ function AuthorizedApp() {
       <h3>Welcome Back 'User'</h3>
       <NavbarComponent />
         <Routes>
-          <Route className="mainSection" path="/" element={<Main />} />
+          <Route className="explore" path="/" element={<Explore />} />
           <Route
             className="postForm"
             path="/pages/PostForm"
@@ -35,11 +35,11 @@ function AuthorizedApp() {
             path="/pages/SignupForm"
             element={<SignupForm />}
           />
-          <Route
+          {/* <Route
             className="explore"
             path="/pages/Explore"
             element={<Explore />}
-          />
+          /> */}
           <Route
           className='logout'
           path='/pages/LogoutPage'

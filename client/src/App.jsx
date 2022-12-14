@@ -56,37 +56,9 @@ function App() {
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
-          <>
             <GlobalProvider>
               <AuthorizedApp />
-              {/* <Header />
-              <NavbarComponent />
-              <Routes>
-                <Route className="mainSection" path="/" element={<Main />} />
-                <Route
-                  className="postForm"
-                  path="/pages/PostForm"
-                  element={<PostForm />}
-                />
-                <Route
-                  className="signupForm"
-                  path="/pages/SignupForm"
-                  element={<SignupForm />}
-                />
-                <Route
-                  className="loginForm"
-                  path="/pages/LoginForm"
-                  element={<LoginForm />}
-                />
-                <Route
-                  className="explore"
-                  path="/pages/explore"
-                  element={<Explore />}
-                />
-              </Routes>
-              <Footer /> */}
             </GlobalProvider>
-          </>
         </Router>
       </ApolloProvider>
     </div>
