@@ -2,8 +2,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../navbarComponent/Navbar.css";
+import "../../App.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
+import LoginForm from "../../pages/LoginForm";
+import SignupForm from "../../pages/SignupForm";
+import Explore from "../../pages/Explore";
+import Header from "../header/Header";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function UnauthorizedApp() {
   return (
@@ -20,12 +27,17 @@ export default function UnauthorizedApp() {
             <Link className="linkStyles" to="./pages/Explore">
               Explore
             </Link>
-            <Link className="linkStyles" to="./pages/SignupForm">
-              Signup
+            <Link className="linkStyles" to="./pages/LoginForm">
+              Login/ Signup
             </Link>
           </Nav>
         </Container>
         <Routes>
+          <Route
+            className="loginForm"
+            path="/pages/LoginForm"
+            element={<LoginForm />}
+          />
           <Route
             className="signupForm"
             path="/pages/SignupForm"
