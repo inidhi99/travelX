@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { useMutation } from '@apollo/client';
@@ -15,7 +15,7 @@ import Box from '@mui/material/Box';
 const PostForm = () => {
   // Unsplash image API
   const [images, setImages] = useState([]);
-  const fetchAPI = async () => {
+  const fetchAPI = useCallback(async () => {
     const response = await axios.get(
       'https://api.unsplash.com/search/photos?query=travel&client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
     );
@@ -23,10 +23,14 @@ const PostForm = () => {
     const data = await response.data;
 
     setImages(data.results);
-  };
+  });
+
+  // const useMountEffect = (fetchAPI) => {
   useEffect(() => {
-    // fetchAPI();
+    fetchAPI({});
   }, []);
+
+  // useMountEffect(fetchAPI);
   // console.log(images);
 
   // textinput  state  variables
@@ -101,6 +105,7 @@ const PostForm = () => {
         <TextField
           input={title}
           name="title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           placeholder="Enter A Title..."
@@ -110,6 +115,7 @@ const PostForm = () => {
         <TextField
           input={country}
           name="country"
+          value={country}
           onChange={(e) => setCountry(e.target.value)}
           type="text"
           placeholder="Provide A Country"
@@ -119,6 +125,7 @@ const PostForm = () => {
         <TextField
           input={city}
           name="city"
+          value={city}
           onChange={(e) => setCity(e.target.value)}
           type="text"
           placeholder="Provide A City"
@@ -142,6 +149,7 @@ const PostForm = () => {
           <TextField
             input={body}
             name="body"
+            value={body}
             onChange={(e) => setCity(e.target.value)}
             type="text"
             placeholder="Enter a post"
