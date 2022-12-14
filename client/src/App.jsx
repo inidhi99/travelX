@@ -18,13 +18,15 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
+  HttpLink
 } from '@apollo/client';
 
 import { setContext } from "@apollo/client/link/context";
 
 // Create main GraphQL API endpoint
-const httpLink = createHttpLink({
+const httpLink = new HttpLink({
   uri: "/graphql",
+  credentials: "include"
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -33,6 +35,7 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : '',
+      "Access-Control-Allow-Origin": "*"
     },
   };
 });
@@ -41,6 +44,9 @@ const authLink = setContext((_, { headers }) => {
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
+  fetchOptions: {
+    mode: "no-cors"
+  }
 });
 
 function App() {
@@ -73,7 +79,7 @@ function App() {
               <Header />
               <NavbarComponent />
               <Routes>
-                <Route className="mainSection" path="/" element={<Main />} />
+                <Route className="mainSection" exact path="/" element={<Main />} />
                 <Route
                   className="postForm"
                   path="/pages/PostForm"

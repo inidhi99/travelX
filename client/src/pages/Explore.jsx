@@ -13,9 +13,6 @@ const Explore = () => {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   const { loading, data } = useQuery(QUERY_POSTS);
-    if (!state.posts.length) {
-        return <h3> No Posts Yet!</h3>
-    }
 
     useEffect(() => {
       const newFilteredPosts = data.filter(post => post.city.toLocaleLowerCase().includes(searchField));
