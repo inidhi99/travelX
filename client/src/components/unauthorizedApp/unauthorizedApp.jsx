@@ -6,6 +6,7 @@ import "../../App.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import LoginForm from "../../pages/LoginForm";
+import SignupForm from "../../pages/SignupForm";
 import Explore from "../../pages/Explore";
 import Header from "../header/Header";
 import React from "react";
@@ -36,6 +37,11 @@ export default function UnauthorizedApp() {
             className="loginForm"
             path="/pages/LoginForm"
             element={<LoginForm />}
+          />
+          <Route
+            className="signupForm"
+            path="/pages/SignupForm"
+            element={<SignupForm />}
           />
           <Route
             className="explore"
