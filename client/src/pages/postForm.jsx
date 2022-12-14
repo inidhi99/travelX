@@ -11,7 +11,6 @@ import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
 
 const PostForm = () => {
   // Unsplash image API
@@ -64,16 +63,16 @@ const PostForm = () => {
       <Container maxWidth="sm">
         <ImageList
           sx={{
-            width: 500,
-            height: 500,
+            width: 100,
+            height: 100,
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            zIndex: 2,
           }}
         >
           <ImageListItem>
+            {/* temporary button for images will not show on final */}
             <Button
               className="clickBtn"
               onClick={fetchAPI}
@@ -83,7 +82,7 @@ const PostForm = () => {
               Click
             </Button>
             <div className="photos">
-              {images.length > 0 && <Images images={images} />}
+              {images.length > 0 && <Images images={images.results} />}
             </div>
           </ImageListItem>
         </ImageList>
