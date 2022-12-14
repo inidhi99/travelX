@@ -1,38 +1,13 @@
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import { Link } from 'react-router-dom';
-// import './Navbar.css';
-
-// function NavbarComponent() {
-//   return (
-//     <>
-//       <Navbar bg="primary" variant="dark" fixed="bottom">
-//         <Container>
-//           <Nav className="navbar">
-//             {/* Temporary */}
-//             <Link className="link" to="./pages/explore">Explore</Link>
-//             <Link className="link" to="./pages/PostForm">Post</Link>
-//             <Link className="link" to="./pages/profile">Profile</Link>
-//             {/* Login should only show if user isn't logged in */}
-//             <Link className="link" to="/pages/LoginForm">Login</Link>
-
-//           </Nav>
-//         </Container>
-//       </Navbar>
-//     </>
-//   );
-// }
-
-// export default NavbarComponent;
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function NavbarComponent() {
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const login = () => setLoggedIn(true);
+  // const logout = () => setLoggedIn(false);
   return (
     <>
       <Navbar bg="primary" variant="dark" fixed="bottom">
@@ -48,10 +23,12 @@ function NavbarComponent() {
             <Link className="linkStyles" to="./pages/PostForm">
               Post
             </Link>
-
-            <Link className="linkStyles" to="./pages/LoginForm">
-              login
-            </Link>
+              <Link className="linkStyles" to="./pages/LoginForm">
+                login
+              </Link>
+              <Link className="linkStyles" to="./pages/LogoutPage">
+                Logout
+              </Link>
           </Nav>
         </Container>
       </Navbar>
