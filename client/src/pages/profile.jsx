@@ -2,6 +2,7 @@
 import { Navigate, useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
+import PostList from "../components/postList/PostList";
 // import {  } from '../utils/mutations';
 import { QUERY_SINGLE_USER, QUERY_ME } from "../utils/queries";
 
@@ -54,15 +55,14 @@ const Profile = () => {
           return <h3 key={index}>{follower.username}</h3>;
         })}
       <h2>Following</h2>
-      {profile.following.length &&
-        profile.following.map((followee, index) => {
-          return <h3 key={index}>{followee.username}</h3>;
-        })}
+      <div>
+        {profile.following.length &&
+          profile.following.map((followee, index) => {
+            return <h3 key={index}>{followee.username}</h3>;
+          })}
+      </div>
       <h2>Posts</h2>
-      {profile.posts.length &&
-        profile.posts.map((post, index) => {
-          return <h3 key={index}>{post.title}</h3>;
-        })}
+      <div>{profile.posts.length && <PostList posts={profile.posts} />}</div>
 
       {/* {profile.skills?.length > 0 && (
         <SkillsList
