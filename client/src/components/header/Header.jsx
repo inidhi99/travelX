@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
 import TravelXlogo from "../images/TravelX.png";
 
 function Header() {
   return (
-    <div>
+    <div id="title">
       <Link to="/">
-        <h1 className="appTitle">
-          <img src={TravelXlogo} alt="TravelXlogo" />
-        </h1>
+        <div id='logoContainer'>
+          <img id="logo" src={TravelXlogo} alt="TravelXlogo" />
+        </div>
       </Link>
     </div>
   );

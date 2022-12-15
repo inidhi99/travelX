@@ -1,0 +1,16 @@
+#explore-the-world {
+    color: white;
+    font-size: 30pt;
+    font-weight: 400;
+    text-align: center;
+}
+
+#searchbox {
+    display: flex;
+    justify-content: center;
+}
+
+#post-list {
+    display: flex;
+    justify-content: center;
+}

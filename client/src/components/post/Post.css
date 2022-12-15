@@ -1,3 +1,78 @@
-#post-container .post-image img {
+* {
+  padding: 0;
+}
+
+#post-card {
+  margin: 10px;
+  width: 345px;
+  border: none;
+  background-color: rgba(38, 75, 111, 0.5);
+}
+
+#post-card:hover {
+  background-color: rgba(61, 107, 152, 0.5);
+  scale: 102%;
+  transition: 0.3s;
+  box-shadow: 2px gray;
+}
+
+#username {
+  text-decoration: none;
+  color: rgb(201, 230, 250);
+}
+
+#username:hover {
+  color: white;
+}
+
+#card-title {
+  color: white;
+  font-size: 21pt;
+  font-weight: 500;
+}
+
+#card-location {
+  color: white;
+  font-size: 10pt;
+  font-weight: 350;
+}
+
+#card-text {
+  color: white;
+  font-size: 12pt;
+  font-weight: 400;
+}
+
+#card-date {
+  color: white;
+}
+#post-list .post-image img {
   width: 275px;
 }
+
+#btn-container button {
+  margin: 0 0.2rem 0 0.2rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+}
+
+#btn-container button:hover {
+  background-color: blue;
+  text-shadow: 2px black;
+  box-shadow: 1px black;
+}
+
+#commentCount {
+  font-size: 20px;
+}
+
+#likeCount {
+  font-size: 20px;
+}
+
+#dislikeCount {
+  font-size: 20px;
+}
+
+

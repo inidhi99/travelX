@@ -1,3 +1,7 @@
-h1 {
-    color: white;
+#welcome-back {
+  color: white;
+  font-weight: 300;
+  font-size: 21pt;
+  text-align: center;
+  padding-top: 20px;
 }
