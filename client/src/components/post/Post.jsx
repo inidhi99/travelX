@@ -75,40 +75,40 @@ const Post = ({ post }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleFormClose = () => setShowForm(false);
-  const handleFormShow = () => setShowForm(true);
-  const handleIncrement = async (e) => {
-    // only allow click event to fire if:
-    // like hasn't been clicked before
-    // and user is logged in
-    if (e.target.classList.contains("like") && !clicked && Auth.loggedIn()) {
-      // prevents multiple clicks
-      setClicked(true);
-      // mutation creates a new like reaction associated with post
-      await addReaction({
-        variables: {
-          postId: _id,
-          reactionType: "like",
-        },
-      });
-      setLikeCount(0);
-    } else if (
-      e.target.classList.contains("dislike") &&
-      !clicked &&
-      Auth.loggedIn()
-    ) {
-      console.log("dislike");
-      // prevents multiple dislike clicks
-      setClicked(true);
-      // mutation creates a new dislike reaction associated with post
-      await addReaction({
-        variables: {
-          postId: _id,
-          reactionType: "dislike",
-        },
-      });
-      setDislikeCount(0);
-    }
-  };
+  const handleFormShow = () => {
+		if (Auth.loggedIn()) {
+			setShowForm(true);
+		}
+	}
+	const handleIncrement = async (e) => {
+		// only allow click event to fire if:
+		// like hasn't been clicked before 
+		// and user is logged in
+		if (e.target.classList.contains("like") && !clicked && Auth.loggedIn()) {
+			// prevents multiple clicks
+			setClicked(true);
+			// mutation creates a new like reaction associated with post
+			await addReaction({
+				variables: {
+					postId: _id,
+					reactionType: 'like',
+				}
+			});
+			setLikeCount(0);
+		} else if (e.target.classList.contains("dislike") && !clicked && Auth.loggedIn()) {
+			console.log('dislike')
+			// prevents multiple dislike clicks
+			setClicked(true);
+			// mutation creates a new dislike reaction associated with post
+			await addReaction({
+				variables: {
+					postId: _id,
+					reactionType: 'dislike',
+				}
+			});
+			setDislikeCount(0);
+		}
+	}
 
   // Comment form input change handler
   const onChangeHandler = (e) => {
