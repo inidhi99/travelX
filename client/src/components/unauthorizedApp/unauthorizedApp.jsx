@@ -1,8 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import "../navbarComponent/Navbar.css";
-// import "../../App.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import LoginForm from "../../pages/LoginForm";

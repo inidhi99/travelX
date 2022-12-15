@@ -34,7 +34,6 @@ const postSchema = new Schema({
   },
   image: {
     type: String,
-    //api ??
   },
   createdAt: {
     type: Date,

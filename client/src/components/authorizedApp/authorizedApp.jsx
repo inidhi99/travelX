@@ -12,7 +12,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 function AuthorizedApp() {
-  // const { username } = useParams();
   const { loading, data } = useQuery(QUERY_ME);
   const profile = data?.me || data?.user || {};
 
@@ -28,11 +27,6 @@ function AuthorizedApp() {
           path="/pages/PostForm"
           element={<PostForm />}
         />
-        {/* <Route
-            className="profile"
-            path="/pages/Profile"
-            element={<Profile />}
-          /> */}
         <Route
           className="signupForm"
           path="/pages/SignupForm"
