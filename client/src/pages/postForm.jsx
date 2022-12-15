@@ -4,34 +4,35 @@ import Container from '@mui/material/Container';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
 import axios from 'axios';
-import Images from '../components/images/Images';
+// import Images from '../components/images/Images';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+// import IndividualImage from '../components/images/IndividualImage';
 import Box from '@mui/material/Box';
 
 const PostForm = () => {
   // Unsplash image API
-  const [images, setImages] = useState([]);
-  const fetchAPI = useCallback(async () => {
+  const [image, setImage] = useState([]);
+  const [imageAlt, setImageAlt] = useState('');
+  const fetchAPI = async () => {
     const response = await axios.get(
       'https://api.unsplash.com/search/photos?query=travel&client_id=Ow4cBXa2ga24IZ6IaLXjoz7xTG35jsPyRhxzkl8xJ7E'
     );
-
     const data = await response.data;
+    const randomIndex = Math.floor(Math.random() * data.results.length);
+    const newImage = data.results[randomIndex];
+    console.log(newImage);
 
-    setImages(data.results);
-  });
+    setImage(newImage.urls.regular);
+    setImageAlt(newImage.alt_description);
+  };
 
-  // const useMountEffect = (fetchAPI) => {
-  // useEffect(() => {
-  //   fetchAPI({});
-  // }, []);
-
-  // useMountEffect(fetchAPI);
-  // console.log(images);
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
   // textinput  state  variables
   const [title, setTitle] = useState('');
@@ -39,7 +40,6 @@ const PostForm = () => {
   const [city, setCity] = useState('');
   const [body, setBody] = useState('');
 
-  // this is breaking
   const [addPost, { error }] = useMutation(ADD_POST);
 
   // form submit function
@@ -76,7 +76,6 @@ const PostForm = () => {
           }}
         >
           <ImageListItem>
-            {/* temporary button for images will not show on final */}
             <div
               className="photos"
               sx={{
@@ -84,12 +83,13 @@ const PostForm = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
-            >
-              {images.length > 0 && <Images images={images} />}
-            </div>
+            ></div>
             {/* <Button onClick={fetchAPI} variant="contained" size="small">
               Click
             </Button> */}
+            <div className="photos">
+              <img src={image} alt={imageAlt}></img>
+            </div>
           </ImageListItem>
         </ImageList>
       </Container>
