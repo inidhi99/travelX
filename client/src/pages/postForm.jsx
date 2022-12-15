@@ -146,10 +146,10 @@ const PostForm = () => {
           multiline
           rows={4}
         />
+        <Button variant="contained" size="small" onClick={handleFormSubmit}>
+          Submit
+        </Button>
       </FormControl>
-      <Button variant="contained" size="small" onClick={handleFormSubmit}>
-        Submit
-      </Button>
     </>
   );
 };
