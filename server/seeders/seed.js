@@ -39,17 +39,24 @@ connection.once('open', async () => {
   // go through each comment datum
   const commentsToInsert = await Promise.all(
     comments.map(async comment => {
-      // get random user
+      // get random post
       const randomIndex = Math.floor(Math.random() * createdPosts.length);
       const randomPost = createdPosts[randomIndex];
+      // const user = await User.findOne({ _id: randomPost.userId });
 
-      const user = await User.findOne({ _id: randomPost.userId });
+      // get index to select random user
+      let randomUserIndex;
+      // ensure random user and the user behind the post are not the same
+      do {
+        randomUserIndex = Math.floor(Math.random() * createdPosts.length);
+      } while (createdUsers[randomUserIndex]._id === randomPost.userId);
+      const randomUser = createdUsers[randomUserIndex];
 
       return {
         ...comment,
         postId: randomPost._id,
-        userId: randomPost.userId,
-        username: user.username,
+        userId: randomUser._id,
+        username: randomUser.username,
       };
     })
   );
