@@ -1,13 +1,14 @@
 ### Built With
 
-[![React][reactjs.org]][reactjs-url]  
-[![NodeJS][node.js]][nodejs-url]  
-[![Express][expressjs.com]][expressjs-url]  
-[![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]  
-[![Stripe][stripe.com]][stripe-url]  
+[![React][reactjs.org]][reactjs-url]
+[![NodeJS][node.js]][nodejs-url]
+[![Express][expressjs.com]][expressjs-url]
+[![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]
+[![Stripe][stripe.com]][stripe-url]
 
 # TravelX
 
+![TravelX logo](client/public/img/TravelX.png)
 <!-- Add app logo here -->
 
 ## Table of Contents
