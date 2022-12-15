@@ -2,15 +2,6 @@
   width: 275px;
 }
 
-.cardtitle {
-  color:white
+#btn-container button {
+  margin: 0 0.2rem 0 0.2rem;
 }
-
-.cardtext {
-  color: white;
-}
-
-.cardbody {
-  color:white
-}
-
