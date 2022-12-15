@@ -62,4 +62,45 @@ module.exports = [
     image:
       'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHw2fHx0cmF2ZWx8ZW58MHx8fHwxNjcxMDM4MzE5&ixlib=rb-4.0.3&q=80&w=1080',
   },
+  {
+    title: 'Trip to D.R.',
+    country: 'Dominican Republic',
+    city: 'Punta Cana',
+    body: 'I had a great time on the water!',
+    image:
+      'https://images.unsplash.com/photo-1484804959297-65e7c19d7c9f?ixlib=rb-4.0.3&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb',
+  },
+  {
+    title: 'French Alps',
+    country: 'France',
+    city: 'Auvergne-Rhône-Alpes',
+    body: 'Breath taking views!',
+    image:
+      'https://images.unsplash.com/photo-1480497490787-505ec076689f?ixlib=rb-4.0.3',
+  },
+  {
+    title: 'Vermont',
+    country: 'United States',
+    city: 'Stowe',
+    body: 'I love the outdoors in Stowe',
+    image:
+      'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHwzfHxOQVRVUkV8ZW58MHx8fHwxNjcxMDc4OTIx&ixlib=rb-4.0.3',
+  },
+  {
+    title: 'Maine',
+    country: 'United States',
+    city: 'Mt. Deset Island',
+    body: 'Traveling with friends is always a great idea',
+    image:
+      'https://images.unsplash.com/photo-1647891940243-77a6483a152e?ixid=MnwzODkyNjZ8MXwxfHNlYXJjaHwxfHxOQVRVUkV8ZW58MHx8fHwxNjcxMDc4OTIx&ixlib=rb-4.0.3',
+  },
+
+  {
+    title: 'California',
+    country: 'United States',
+    city: 'Malibu',
+    body: 'There is more to LA than hollywood! I love Malibu',
+    image:
+      'https://images.unsplash.com/photo-1546669689-5b43ad2bba60?ixlib=rb-4.0.3',
+  },
 ];
