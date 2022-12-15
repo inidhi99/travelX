@@ -26,7 +26,7 @@ const PostForm = () => {
     const newImage = data.results[randomIndex];
     console.log(newImage);
 
-    setImage(newImage.urls.regular);
+    setImage(newImage.urls.small);
     setImageAlt(newImage.alt_description);
   };
 
@@ -65,7 +65,8 @@ const PostForm = () => {
     <>
       <CssBaseline />
       <Container maxWidth="sm">
-        <ImageList id="image-list"
+        <ImageList
+          id="image-list"
           sx={{
             // width: 100,
             // height: 100,
