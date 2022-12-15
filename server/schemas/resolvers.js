@@ -55,7 +55,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, { title, body, city, country }, context) => {
+    addPost: async (parent, { title, body, city, country, image }, context) => {
       if (!context.user) {
         throw new AuthenticationError('You must be logged in to preform this action');
       }
@@ -64,6 +64,7 @@ const resolvers = {
         body: body,
         city: city,
         country: country,
+        image: image,
         userId: context.user._id,
         username: context.user.username,
       });

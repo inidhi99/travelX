@@ -48,7 +48,7 @@ const PostForm = () => {
 
     try {
       const { data } = await addPost({
-        variables: { title, country, city, body },
+        variables: { title, country, city, body, image },
       });
       window.location.reload();
     } catch (err) {
