@@ -56,7 +56,11 @@ const Post = ({ post }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleFormClose = () => setShowForm(false);
-  const handleFormShow = () => setShowForm(true);
+  const handleFormShow = () => {
+		if (Auth.loggedIn()) {
+			setShowForm(true);
+		}
+	}
 	const handleIncrement = async (e) => {
 		// only allow click event to fire if:
 		// like hasn't been clicked before 
