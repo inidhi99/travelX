@@ -63,7 +63,7 @@ const Post = ({ post }) => {
 						: <p>No Comments yet</p>}
 				</Modal.Body>
         <Modal.Footer className='bg-primary'>
-          <Button variant="light" onClick={handleClose}>
+          <Button variant="lighta" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
