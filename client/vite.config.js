@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 // import path from 'path';
 
 // const path = require('path')
@@ -7,13 +7,18 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   server: {
     proxy: {
       // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
       // '/foo': 'http://localhost:4567',
       // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
-      '/graphql': {
-        target: 'http://127.0.0.1:3001/graphql',
+      "/graphql": {
+        target: "http://127.0.0.1:3001/graphql",
         changeOrigin: true,
         // rewrite: path => path.replace(/^\/graphql/, ''),
         secure: false,
