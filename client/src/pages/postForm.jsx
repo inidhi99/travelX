@@ -26,7 +26,7 @@ const PostForm = () => {
     const newImage = data.results[randomIndex];
     console.log(newImage);
 
-    setImage(newImage.urls.regular);
+    setImage(newImage.urls.small);
     setImageAlt(newImage.alt_description);
   };
 
