@@ -5,6 +5,7 @@ import { useGlobalContext } from '../context/globalContext';
 import { UPDATE_POSTS } from '../context/actions';
 import { QUERY_POSTS } from '../utils/queries';
 import SearchBox from "../components/SearchBox/search-box.component";
+import './Explore.css';
 
 
 const Explore = () => {
@@ -30,9 +31,9 @@ const Explore = () => {
 
   return (
     <div className="container">
-      Explore the World!!
-      <SearchBox className="posts-search-box" placeholder="search posts" onChangeHandler={onSearchChange} />
-      <PostList posts={filteredPosts} />
+      <p id="explore-the-world">Explore the World</p>
+      <SearchBox className="posts-search-box" placeholder="search posts" onChangeHandler={onSearchChange} id="searchbox"/>
+      <PostList posts={filteredPosts} id="post-list"/>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import SignupForm from "../../pages/SignupForm";
 import LogoutPage from "../../pages/LogoutPage";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
+import './AuthorizedApp.css';
 
 function AuthorizedApp() {
   // const { username } = useParams();
@@ -19,7 +20,7 @@ function AuthorizedApp() {
   return (
     <div>
       <Header />
-      <h3>Welcome Back {profile.username} !</h3>
+      <p id="welcome-back">Welcome back, {profile.username}!</p>
       <NavbarComponent />
       <Routes>
         <Route className="explore" path="/" element={<Explore />} />

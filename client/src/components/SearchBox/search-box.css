@@ -1,0 +1,10 @@
+#searchbar  {
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    padding-left: 8px;
+    color: black;
+    display: flex;
+}

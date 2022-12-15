@@ -59,10 +59,10 @@ const PostForm = () => {
   };
 
   return (
-    <>
+    <div>
       <CssBaseline />
       <Container maxWidth="sm">
-        <ImageList
+        <ImageList id="image-list"
           sx={{
             width: 100,
             height: 100,
@@ -72,7 +72,7 @@ const PostForm = () => {
             alignItems: 'center',
           }}
         >
-          <ImageListItem>
+          <ImageListItem id="image-item">
             {/* temporary button for images will not show on final */}
             <Button onClick={fetchAPI} variant="contained" size="small">
               Click
@@ -150,7 +150,7 @@ const PostForm = () => {
           Submit
         </Button>
       </Container>
-    </>
+    </div>
   );
 };
 

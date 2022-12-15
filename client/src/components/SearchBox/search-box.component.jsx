@@ -1,7 +1,9 @@
+import './search-box.css';
+
 const SearchBox = ({className, placeholder, onChangeHandler}) => {
   return (
-    <div>
-      <input className={`search-box ${className}`} type="search" placeholder={placeholder} onChange={onChangeHandler} />
+    <div id='searchbox'>
+      <input className={`search-box ${className}`} type="search" placeholder={placeholder} onChange={onChangeHandler} id="searchbar"/>
     </div>
   )
 }

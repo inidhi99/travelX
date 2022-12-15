@@ -1,0 +1,12 @@
+#posts {
+    width: 100%;
+    align-items: center;
+}
+
+#post-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px;
+
+}

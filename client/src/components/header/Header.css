@@ -1,3 +1,6 @@
-h1 {
+#title {
     color: white;
+    font-size: 45pt;
+    text-decoration: none;
+    font-weight: 400;
 }
