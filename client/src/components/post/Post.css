@@ -1,7 +1,10 @@
+* {
+    padding: 0;
+}
+
 #post-card {
     margin: 10px;
-    width: 300px;
-    height: 300px;
+    width: 345px;
     border: none;
     background-color: rgba(38, 75, 111, 0.5);
 }
@@ -32,7 +35,6 @@
     color: white;
     font-size: 10pt;
     font-weight: 350;
-    /* text-transform: uppercase; */
 }
 
 #card-text {
@@ -43,4 +45,11 @@
 
 #card-date {
     color: white;
+}
+#post-list .post-image img {
+  width: 275px;
+}
+
+#btn-container button {
+  margin: 0 0.2rem 0 0.2rem;
 }

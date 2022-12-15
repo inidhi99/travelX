@@ -19,6 +19,7 @@ const typeDefs = gql`
     username: String
     title: String
     body: String
+    image: String
     country: String
     city: String
     comments: [Comment]!
