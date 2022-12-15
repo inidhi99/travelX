@@ -14,9 +14,9 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-import AuthorizedApp from "@/components/authorizedApp/AuthorizedApp";
-import UnauthorizedApp from "@/components/unauthorizedApp/unauthorizedApp";
-import Auth from "@/utils/auth";
+import AuthorizedApp from "./components/authorizedApp/authorizedApp";
+import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
+import Auth from "./utils/auth";
 
 // Create main GraphQL API endpoint
 const httpLink = new HttpLink({
