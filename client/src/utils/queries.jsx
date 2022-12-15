@@ -98,6 +98,7 @@ export const QUERY_POSTS = gql`
     body
     country
     city
+    image
     comments {
       _id
       userId
