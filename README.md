@@ -1,11 +1,10 @@
 ### Built With
+[![React][reactjs.org]][reactjs-url]  
+[![GraphQL][graphql.org]][graphql-url]  
+[![NodeJS][node.js]][nodejs-url]  
+[![Express][expressjs.com]][expressjs-url]  
+[![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]  
 
-[![React][reactjs.org]][reactjs-url]
-[![NodeJS][node.js]][nodejs-url]
-[![Express][expressjs.com]][expressjs-url]
-[![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]
-
-<!-- [![Stripe][stripe.com]][stripe-url] -->
 
 # TravelX
 
@@ -64,6 +63,8 @@ Feel free to contact any of the contributors of this project via github profiles
 
 [reactjs-url]: https://reactjs.org/
 [reactjs.org]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[graphql-url]: https://graphql.org/
+[graphql.org]: https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white
 [nodejs-url]: https://nodejs.org/en/
 [node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
 [expressjs-url]: https://expressjs.com/
