@@ -1,3 +1,16 @@
 #post-container .post-image img {
   width: 275px;
 }
+
+.cardtitle {
+  color:white
+}
+
+.cardtext {
+  color: white;
+}
+
+.cardbody {
+  color:white
+}
+

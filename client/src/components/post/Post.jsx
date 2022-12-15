@@ -24,10 +24,12 @@ const Post = ({ post }) => {
   <Card >
 		<Link to={`/profiles/${username}`}>{username}</Link>
       <div className="post-image"><Card.Img variant="top" src={image} /></div>
-      <Card.Body>
+      <Card.Body >
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-					<span>{city}, {country}</span>		
+		<span>{city}, {country}</span>
+		<div>{body}</div>
+		<div>{createdAt}</div>
         </Card.Text>
         <Card.Text>
 					<span>{body}</span>
