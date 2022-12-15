@@ -1,10 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import ImageList from "@mui/material/ImageList";
+// import ImageListItem from "@mui/material/ImageListItem";
+// import Profile from "./pages/profile";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import { GlobalProvider } from "./context/globalContext";
-import Profile from "./pages/profile";
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,7 +14,7 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
+import AuthorizedApp from "./components/authorizedApp/authorizedApp";
 import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
 import Auth from "./utils/auth";
 

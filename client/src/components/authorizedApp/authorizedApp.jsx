@@ -2,8 +2,8 @@ import NavbarComponent from '../navbarComponent/NavbarComponent';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PostForm from '../../pages/PostForm';
-import Profile from '../../pages/Profile';
+import PostForm from '../../pages/postForm';
+import Profile from '../../pages/profile';
 import Explore from '../../pages/Explore';
 import LoginForm from '../../pages/LoginForm';
 import SignupForm from '../../pages/SignupForm';
@@ -12,12 +12,14 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 
 function AuthorizedApp() {
+  // const { username } = useParams();
   const { loading, data } = useQuery(QUERY_ME);
+  const profile = data?.me || data?.user || {};
 
   return (
     <div>
       <Header />
-      <h3>`Welcome Back`</h3>
+      <h3>Welcome Back {profile.username} !</h3>
       <NavbarComponent />
       <Routes>
         <Route className="explore" path="/" element={<Explore />} />
