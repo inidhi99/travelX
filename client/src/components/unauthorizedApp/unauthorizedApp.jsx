@@ -1,8 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import "../navbarComponent/Navbar.css";
-import "../../App.css";
+// import "../navbarComponent/Navbar.css";
+// import "../../App.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import LoginForm from "../../pages/LoginForm";
@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function UnauthorizedApp() {
   return (
-    <>
+    <div>
       <Header />
       <h2> Oops! It looks like you are not logged in</h2>
       <p>
@@ -52,6 +52,6 @@ export default function UnauthorizedApp() {
       </Navbar>
       {/* Insert image logo here */}
       <Footer />
-    </>
+    </div>
   );
 }

@@ -4,7 +4,7 @@
 [![NodeJS][node.js]][nodejs-url]
 [![Express][expressjs.com]][expressjs-url]
 [![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]
-[![Stripe][stripe.com]][stripe-url]
+<!-- [![Stripe][stripe.com]][stripe-url] -->
 
 # TravelX
 

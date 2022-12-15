@@ -7,7 +7,7 @@ function Header() {
     <div>
       <Link to="/">
         <h1 className="appTitle">
-          <img src={TravelXlogo} alt="TravelXlogo" height="150" width="400" />
+          <img src={TravelXlogo} alt="TravelXlogo" />
         </h1>
       </Link>
     </div>

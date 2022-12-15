@@ -1,10 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import ImageList from "@mui/material/ImageList";
+// import ImageListItem from "@mui/material/ImageListItem";
+// import Profile from "./pages/profile";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import { GlobalProvider } from "./context/globalContext";
-import Profile from "./pages/profile";
 import {
   ApolloClient,
   InMemoryCache,
