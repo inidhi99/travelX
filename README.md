@@ -4,11 +4,13 @@
 [![NodeJS][node.js]][nodejs-url]
 [![Express][expressjs.com]][expressjs-url]
 [![React-Bootstrap][getbootstrap.com]][react-bootstrap-url]
+
 <!-- [![Stripe][stripe.com]][stripe-url] -->
 
 # TravelX
 
 ![TravelX logo](client/public/img/TravelX.png)
+
 <!-- Add app logo here -->
 
 ## Table of Contents
@@ -52,7 +54,7 @@ Feel free to contact any of the contributors of this project via github profiles
 
 ## Contributors
 
-[Bria](https://github.com/briabr)  
+[Bria Filali](https://github.com/briabr)  
 [Evince Edouard](https://github.com/EEdouard28)  
 [Igor Korman](https://github.com/ikorman12)  
 [Jeff Grasso](https://github.com/jeffgrasso42)  
