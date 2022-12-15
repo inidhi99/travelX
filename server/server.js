@@ -15,11 +15,11 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-const corsConfig = {
-  origin: 'http://127.0.0.1:5173',
-  credentials: true,
-};
-app.use(cors(corsConfig));
+// const corsConfig = {
+//   origin: 'http://127.0.0.1:5173',
+//   credentials: true,
+// };
+// app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
