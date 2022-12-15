@@ -5,6 +5,7 @@ import Auth from "../utils/auth";
 import PostList from "../components/postList/PostList";
 // import {  } from '../utils/mutations';
 import { QUERY_SINGLE_USER, QUERY_ME } from "../utils/queries";
+import './profile.css';
 
 // import PostList from '../components/postList';
 // import PostForm from './PostForm';
@@ -44,36 +45,42 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h2 className="card-header">{profile.username}</h2>
+    <div id="profile">
+      <h2 id="user-name">{profile.username}</h2>
       {/* <h2 className="card-header">
         {profile.email}
       </h2> */}
-      <h2>Followers</h2>
-      {profile.followers.length &&
-        profile.followers.map((follower, index) => {
-          return <h3 key={index}>{follower.username}</h3>;
-        })}
-      <h2>Following</h2>
-      <div>
-        {profile.following.length &&
-          profile.following.map((followee, index) => {
-            return <h3 key={index}>{followee.username}</h3>;
+      <div className="profile-section">
+        <h2 id="followers">Followers</h2>
+        {profile.followers.length &&
+          profile.followers.map((follower, index) => {
+            return <h3 key={index}>{follower.username}</h3>;
           })}
       </div>
-      <h2>Posts</h2>
-      <div>{profile.posts.length && <PostList posts={profile.posts} />}</div>
+      <div className="profile-section">
+        <h2 id="following">Following</h2>
+        <div>
+          {profile.following.length &&
+            profile.following.map((followee, index) => {
+              return <h3 key={index}>{followee.username}</h3>;
+            })}
+        </div>
+      </div>
+      <div>
+        <h2 id="posts">Posts</h2>
+        <div>{profile.posts.length && <PostList posts={profile.posts} />}</div>
+      </div>
 
-      {/* {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
-          isLoggedInUser={!profileId && true}
-        />
-      )}
+        {/* {profile.skills?.length > 0 && (
+          <SkillsList
+            skills={profile.skills}
+            isLoggedInUser={!profileId && true}
+          />
+        )}
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={profile._id} />
-      </div> */}
+        <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+          <SkillForm profileId={profile._id} />
+        </div> */}
     </div>
   );
 };

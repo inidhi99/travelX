@@ -65,7 +65,7 @@ const PostForm = () => {
     <>
       <CssBaseline />
       <Container maxWidth="sm">
-        <ImageList
+        <ImageList id="image-list"
           sx={{
             // width: 100,
             // height: 100,
