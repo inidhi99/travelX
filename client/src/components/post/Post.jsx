@@ -5,6 +5,10 @@ import Card from "react-bootstrap/Card";
 import "./Post.css";
 import Modal from "react-bootstrap/Modal";
 import Comment from "../comment/Comment.component";
+import CommentForm from "../commentForm/CommentForm.component";
+import { ADD_REACTION, ADD_COMMENT } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import Auth from "../../utils/auth";
 
 // Component for rendering individual posts
 const Post = ({ post }) => {
@@ -26,8 +30,30 @@ const Post = ({ post }) => {
   // local stateful variables
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
+  const [clicked, setClicked] = useState(false);
   const [commentCount, setCommentCount] = useState(0);
   const [show, setShow] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [commentText, setCommentText] = useState({ commentText: "" });
+
+  // use mutations
+  const [addReaction] = useMutation(ADD_REACTION);
+  const [addComment] = useMutation(ADD_COMMENT);
+  // sets the likeCount dislikeCount and commentCount variables on mount
+  useEffect(() => {
+    // get like count from length of filtered array
+    const likes = reactions.filter(
+      (reaction) => reaction.reactionType === "like"
+    ).length;
+    const dislikes = reactions.filter(
+      (reaction) => reaction.reactionType === "dislike"
+    ).length;
+
+    // set counts
+    setCommentCount(comments.length);
+    setLikeCount(likes);
+    setDislikeCount(dislikes);
+  }, [likeCount, dislikeCount, commentCount]);
 
   // sets the likeCount dislikeCount and commentCount variables on mount
   useEffect(() => {
@@ -48,12 +74,62 @@ const Post = ({ post }) => {
   // event handlers
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleIncrement = (e) => {
-    if (e.target.classList.contains("like")) {
-      console.log("like");
-    } else if (e.target.classList.contains("dislike")) {
+  const handleFormClose = () => setShowForm(false);
+  const handleFormShow = () => setShowForm(true);
+  const handleIncrement = async (e) => {
+    // only allow click event to fire if:
+    // like hasn't been clicked before
+    // and user is logged in
+    if (e.target.classList.contains("like") && !clicked && Auth.loggedIn()) {
+      // prevents multiple clicks
+      setClicked(true);
+      // mutation creates a new like reaction associated with post
+      await addReaction({
+        variables: {
+          postId: _id,
+          reactionType: "like",
+        },
+      });
+      setLikeCount(0);
+    } else if (
+      e.target.classList.contains("dislike") &&
+      !clicked &&
+      Auth.loggedIn()
+    ) {
       console.log("dislike");
+      // prevents multiple dislike clicks
+      setClicked(true);
+      // mutation creates a new dislike reaction associated with post
+      await addReaction({
+        variables: {
+          postId: _id,
+          reactionType: "dislike",
+        },
+      });
+      setDislikeCount(0);
     }
+  };
+
+  // Comment form input change handler
+  const onChangeHandler = (e) => {
+    const input = e.target.value;
+    setCommentText(input);
+  };
+
+  // Comment form submit handler
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await addComment({
+        variables: {
+          postId: _id,
+          commentText: commentText,
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    handleFormClose();
   };
 
   return (
@@ -79,37 +155,31 @@ const Post = ({ post }) => {
             <span>{createdAt}</span>
           </Card.Text>
           <div id="btn-container" className="d-flex justify-content-evenly">
-            <Button
-              variant="primary container-fluid"
-              id="comment-btn"
-              onClick={handleShow}
-            >
+            <Button variant="primary container-fluid" onClick={handleShow}>
               <div id="commentCount">{commentCount}</div>
               Comments
             </Button>
             <Button
               className="like"
               variant="primary"
-              id="like-btn"
               onClick={handleIncrement}
             >
-              <div id="likeCount">{likeCount}</div> Likes
+              <div id='likeCount'>{likeCount}</div> Likes
             </Button>
             <Button
               className="dislike"
               variant="primary"
-              id="dislike-btn"
               onClick={handleIncrement}
             >
-              <div id="dislikeCount">{dislikeCount}</div> Dislikes
+              <div id='dislikeCount'>{dislikeCount}</div> Dislikes
             </Button>
           </div>
         </Card.Body>
       </Card>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header id="modalHeader" className="bg-primary" closeButton>
-          <Modal.Title id='modalTitle' className="text-light">Comments</Modal.Title>
+        <Modal.Header className="bg-primary" closeButton>
+          <Modal.Title className="text-light">Comments</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-secondary">
           {comments ? (
@@ -121,7 +191,24 @@ const Post = ({ post }) => {
           )}
         </Modal.Body>
         <Modal.Footer className="bg-primary">
-          <Button variant="lighta" onClick={handleClose}>
+          <Button variant="light container-fluid" onClick={handleFormShow}>
+            Add Comment
+          </Button>
+          <Button variant="light" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showForm} onHide={handleFormClose}>
+        <Modal.Header className="bg-primary" closeButton>
+          <Modal.Title className="text-light">Add Comment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="bg-secondary">
+          <CommentForm onChange={onChangeHandler} onSubmit={onSubmitHandler} />
+        </Modal.Body>
+        <Modal.Footer className="bg-primary">
+          <Button variant="light" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
