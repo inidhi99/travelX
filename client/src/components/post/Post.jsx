@@ -53,53 +53,53 @@ const Post = ({ post }) => {
 	}
 
 	return (
-	<>
+		<>
 			<Card id="post-card">
-					<Link to={`/profiles/${username}`} id="username">{username}</Link>
-					<div className="post-image">
-						<Card.Img variant="top" src={image} />
-					</div>
+				<Link to={`/profiles/${username}`} id="username">{username}</Link>
+				<div className="post-image">
+					<Card.Img variant="top" src={image} />
+				</div>
 				<Card.Body>
 					<Card.Title id="card-title">{title}</Card.Title>
 					<Card.Text id="card-location">
-								<span>{city}, {country}</span>		
+						<span>{city}, {country}</span>		
 					</Card.Text>
 					<Card.Text id="card-text">
-								<span>{body}</span>
-							</Card.Text>
+						<span>{body}</span>
+					</Card.Text>
 					<Card.Text id="card-date">
-								<span>{createdAt}</span>
-							</Card.Text>
-								<div id='btn-container' className='d-flex justify-content-evenly'>
-									<Button variant="primary container-fluid" onClick={handleShow}>
-											{commentCount} Comments
-									</Button>
-									<Button className="like" variant="primary" onClick={handleIncrement}>
-										{likeCount} Likes
-									</Button>
-									<Button className="dislike" variant="primary" onClick={handleIncrement}>
-										{dislikeCount} Dislikes
-									</Button>
-								</div>
-							</Card.Body>
-						</Card>
+						<span>{createdAt}</span>
+					</Card.Text>
+					<div id='btn-container' className='d-flex justify-content-evenly'>
+						<Button variant="primary container-fluid" onClick={handleShow}>
+							{commentCount} Comments
+						</Button>
+						<Button className="like" variant="primary" onClick={handleIncrement}>
+							{likeCount} Likes
+						</Button>
+						<Button className="dislike" variant="primary" onClick={handleIncrement}>
+							{dislikeCount} Dislikes
+						</Button>
+					</div>
+				</Card.Body>
+			</Card>
 
-						<Modal show={show} onHide={handleClose}>
-					<Modal.Header className="bg-primary" closeButton>
+			<Modal show={show} onHide={handleClose}>
+				<Modal.Header className="bg-primary" closeButton>
 					<Modal.Title className='text-light'>Comments</Modal.Title>
-					</Modal.Header>
-					<Modal.Body className='bg-secondary'>
-								{comments 
-									? comments.map(comment => <Comment key={comment._id} comment={comment} />)
-									: <p>No Comments yet</p>}
-							</Modal.Body>
-					<Modal.Footer className='bg-primary'>
+				</Modal.Header>
+				<Modal.Body className='bg-secondary'>
+					{comments 
+						? comments.map(comment => <Comment key={comment._id} comment={comment} />)
+						: <p>No Comments yet</p>}
+				</Modal.Body>
+				<Modal.Footer className='bg-primary'>
 					<Button variant="lighta" onClick={handleClose}>
 						Close
 					</Button>
-					</Modal.Footer>
-				</Modal>
-			</>
+				</Modal.Footer>
+			</Modal>
+		</>
 	)
 };
 
