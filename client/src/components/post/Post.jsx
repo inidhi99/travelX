@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import './Post.css'
 import Modal from 'react-bootstrap/Modal';
 import Comment from '../comment/Comment.component';
+import CommentForm from '../commentForm/CommentForm.component';
 import { ADD_REACTION, ADD_COMMENT } from '../../utils/mutations';
 import { useMutation } from "@apollo/client";
 import Auth from '../../utils/auth';
@@ -34,6 +35,8 @@ const Post = ({ post }) => {
 	const [disikeClicked, setDisikeClicked] = useState(false);
 	const [commentCount, setCommentCount] = useState(0);
 	const [show, setShow] = useState(false);
+	const [showForm, setShowForm] = useState(false);
+	const [commentText, setCommentText] = useState({ commentText: '' });
 	
 	// use mutations
 	const [addReaction] = useMutation(ADD_REACTION);
@@ -53,6 +56,8 @@ const Post = ({ post }) => {
 	// event handlers
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleFormClose = () => setShowForm(false);
+  const handleFormShow = () => setShowForm(true);
 	const handleIncrement = async (e) => {
 		// only allow click event to fire if:
 		// like hasn't been clicked before 
@@ -81,6 +86,28 @@ const Post = ({ post }) => {
 			});
 			setDislikeCount(0);
 		}
+	}
+
+	// Comment form input change handler
+	const onChangeHandler = e => {
+		const input = e.target.value;
+		setCommentText(input);
+	}
+
+	// Comment form submit handler
+	const onSubmitHandler = async (e) => {
+		e.preventDefault();
+		try {
+			await addComment({
+				variables: {
+					postId: _id,
+					commentText: commentText,
+				} 
+			});
+		} catch (e) {
+      console.log(e);
+    }
+		handleFormClose();
 	}
 
 	return (
@@ -125,7 +152,25 @@ const Post = ({ post }) => {
 						: <p>No Comments yet</p>}
 				</Modal.Body>
 				<Modal.Footer className='bg-primary'>
-					<Button variant="lighta" onClick={handleClose}>
+					<Button variant="light container-fluid" onClick={handleFormShow}>
+						Add Comment
+					</Button>
+					<Button variant="light" onClick={handleClose}>
+						Close
+					</Button>
+				</Modal.Footer>
+			</Modal>
+
+
+			<Modal show={showForm} onHide={handleFormClose}>
+				<Modal.Header className="bg-primary" closeButton>
+					<Modal.Title className='text-light'>Add Comment</Modal.Title>
+				</Modal.Header>
+				<Modal.Body className='bg-secondary'>
+					<CommentForm onChange={onChangeHandler} onSubmit={onSubmitHandler} />
+				</Modal.Body>
+				<Modal.Footer className='bg-primary'>
+					<Button variant="light" onClick={handleClose}>
 						Close
 					</Button>
 				</Modal.Footer>
