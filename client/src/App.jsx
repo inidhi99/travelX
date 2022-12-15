@@ -14,7 +14,7 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-import AuthorizedApp from "./components/authorizedApp/AuthorizedApp";
+import AuthorizedApp from "./components/authorizedApp/authorizedApp";
 import UnauthorizedApp from "./components/unauthorizedApp/unauthorizedApp";
 import Auth from "./utils/auth";
 
