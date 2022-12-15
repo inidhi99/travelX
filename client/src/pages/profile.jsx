@@ -52,14 +52,14 @@ const Profile = () => {
         {profile.email}
       </h2> */}
       <div className="profile-section">
-        <h2 id="followers">Followers</h2>
+        <h2 id="followers">{profile.followers.length} Followers</h2>
         {profile.followers.length &&
           profile.followers.map((follower, index) => {
             return <h3 key={index}>{follower.username}</h3>;
           })}
       </div>
       <div className="profile-section">
-        <h2 id="following">Following</h2>
+        <h2 id="following">{profile.following.length} Following</h2>
         <div>
           {profile.following.length &&
             profile.following.map((followee, index) => {
