@@ -102,7 +102,7 @@ const PostForm = () => {
           alignItems: 'center',
         }}
       >
-        <TextField
+        <TextField sx={{ input: { color: 'white' } }}
           input={title}
           name="title"
           value={title}
@@ -112,7 +112,7 @@ const PostForm = () => {
           id="standard-basic"
           variant="standard"
         />
-        <TextField
+        <TextField sx={{ input: { color: 'white' } }}
           input={country}
           name="country"
           value={country}
@@ -122,7 +122,7 @@ const PostForm = () => {
           id="standard-basic"
           variant="standard"
         />
-        <TextField
+        <TextField sx={{ input: { color: 'white' } }}
           input={city}
           name="city"
           value={city}
@@ -133,14 +133,14 @@ const PostForm = () => {
           variant="standard"
         />
 
-        <TextField
+        <TextField 
           input={body}
           name="body"
           value={body}
           onChange={(e) => setBody(e.target.value)}
           type="text"
           placeholder="Enter a post"
-          sx={{ p: 0.5 }}
+          sx={{ p: 0.5,  }}
           id="outlined-multiline-static"
           multiline
           rows={4}
