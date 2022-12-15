@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Comment from '../comment/Comment.component';
 import { ADD_REACTION, ADD_COMMENT } from '../../utils/mutations';
 import { useMutation } from "@apollo/client";
+import Auth from '../../utils/auth';
 
 // Component for rendering individual posts
 const Post = ({ post }) => {
@@ -53,19 +54,26 @@ const Post = ({ post }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 	const handleIncrement = async (e) => {
-		if (e.target.classList.contains("like") && !likeClicked) {
+		// only allow click event to fire if:
+		// like hasn't been clicked before 
+		// and user is logged in
+		if (e.target.classList.contains("like") && !likeClicked && Auth.loggedIn()) {
+			// prevents multiple clicks
 			setLikeClicked(true);
-			const mutationResponse = await addReaction({
+			// mutation creates a new like reaction associated with post
+			await addReaction({
 				variables: {
 					postId: _id,
 					reactionType: 'like',
 				}
 			});
 			setLikeCount(0);
-		} else if (e.target.classList.contains("dislike") && !disikeClicked) {
+		} else if (e.target.classList.contains("dislike") && !disikeClicked && Auth.loggedIn()) {
 			console.log('dislike')
+			// prevents multiple dislike clicks
 			setDisikeClicked(true);
-			const mutationResponse = await addReaction({
+			// mutation creates a new dislike reaction associated with post
+			await addReaction({
 				variables: {
 					postId: _id,
 					reactionType: 'dislike',
