@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-
+// Component for rendering individual posts
 const Post = ({ post }) => {
+	// destructure post object into component varibles
 	const { 
 		_id,
 		title, 
 		body,
 		userId,
 		username, 
-		city, 
+		city,
+		image, 
 		country, 
 		comments, 
 		reactions, 
@@ -19,9 +21,9 @@ const Post = ({ post }) => {
 	} = post
 
 	return (
-   <Card >
+  <Card >
 		<Link to={`/profiles/${username}`}>{username}</Link>
-      <div><Card.Img variant="top" src="holder.js/100px180" /></div>
+      <div className="post-image"><Card.Img variant="top" src={image} /></div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text className="text-light">
@@ -37,7 +39,6 @@ const Post = ({ post }) => {
 				</Card.Text>
       </Card.Body>
     </Card>
-	
 	)
 };
 
