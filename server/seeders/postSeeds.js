@@ -103,4 +103,36 @@ module.exports = [
     image:
       'https://images.unsplash.com/photo-1546669689-5b43ad2bba60?ixlib=rb-4.0.3',
   },
+  {
+    title: 'Africa',
+    country: 'Africa',
+    city: 'Botswana',
+    body: 'Traveling through the safari',
+    image:
+      'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHwxfHxhZnJpY2F8ZW58MHx8fHwxNjcxMDgwMTM5&ixlib=rb-4.0.3',
+  },
+  {
+    title: 'The City',
+    country: 'United States',
+    city: 'NYC',
+    body: 'There is nothing like exploring the best city in the world',
+    image:
+      'https://images.unsplash.com/photo-1496871455396-14e56815f1f4?ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHwzfHxDSVRZfGVufDB8fHx8MTY3MTA3OTg4OA&ixlib=rb-4.0.3',
+  },
+  {
+    title: 'Santorini',
+    country: 'Greece',
+    city: 'Santorini',
+    body: 'Our honeymoon was amazing in Santorini!',
+    image:
+      'https://images.unsplash.com/photo-1533105079780-92b9be482077?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHwxfHxncmVlY2V8ZW58MHx8fHwxNjcxMDgwMDUw&ixlib=rb-4.0.3&q=80&w=1080',
+  },
+  {
+    title: 'Asia',
+    country: 'Hong Kong',
+    city: 'Ngong Ping',
+    body: 'The Tian Tan Buddha statue was amazinggg!',
+    image:
+      'https://images.unsplash.com/photo-1513415564515-763d91423bdd?ixid=MnwzODkyNjZ8MHwxfHNlYXJjaHwxfHxhc2lhfGVufDB8fHx8MTY3MTA4MDA3OA&ixlib=rb-4.0.3',
+  },
 ];
