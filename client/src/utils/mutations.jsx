@@ -52,8 +52,7 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  {
-    mutation
+  mutation addCommentaddComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
       _id
       userId
@@ -81,8 +80,7 @@ export const ADD_COMMENT = gql`
 `;
 
 export const ADD_REACTION = gql`
-  {
-    mutation
+  mutation addReaction($postId: ID!, $reactionType: String) {
     addReaction(postId: $postId, reactionType: $reactionType) {
       _id
       userId
