@@ -9,7 +9,8 @@
 
 #logo {
   padding-top: 30px;
-  float: center;
+  padding-left: 20%;
+  width: 80%;
 }
 
 #logo:hover {
@@ -20,8 +21,4 @@
 }
 
 @media screen and (max-width: 766px) {
-  #logo {
-    padding-left: 20%;
-    width: 80%;
-  }
 }
