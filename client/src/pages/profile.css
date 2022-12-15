@@ -1,0 +1,33 @@
+#profile {
+    margin: 50px;
+    color: white;
+}
+
+#user-name {
+    margin: 40px;
+    text-align: center;
+    font-size: 35pt;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.profile-section {
+    display: inline-flex;
+}
+
+#followers {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+#following {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+#posts {
+    margin: 20px;
+    margin-top: 50px;
+}
+

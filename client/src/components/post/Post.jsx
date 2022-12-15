@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import './Post.css'
 import Modal from 'react-bootstrap/Modal';
 import Comment from '../comment/Comment.component';
 
@@ -52,53 +53,53 @@ const Post = ({ post }) => {
 	}
 
 	return (
-		<>
-			<Card >
-				<Link to={`/profiles/${username}`}>{username}</Link>
-				<div className="post-image">
-					<Card.Img variant="top" src={image} />
-				</div>
-				<Card.Body>
-					<Card.Title>{title}</Card.Title>
-					<Card.Text>
-						<span>{city}, {country}</span>		
-					</Card.Text>
-					<Card.Text>
-						<span>{body}</span>
-					</Card.Text>
-					<Card.Text>
-						<span>{createdAt}</span>
-					</Card.Text>
-					<div id='btn-container' className='flex '>
-						<Button variant="primary" onClick={handleShow}>
-							{commentCount} Comments
-						</Button>
-						<Button className="like" variant="primary" onClick={handleIncrement}>
-							{likeCount} Likes
-						</Button>
-						<Button className="dislike" variant="primary" onClick={handleIncrement}>
-							{dislikeCount} Dislikes
-						</Button>
+	<>
+			<Card id="post-card">
+					<Link to={`/profiles/${username}`} id="username">{username}</Link>
+					<div className="post-image">
+						<Card.Img variant="top" src={image} />
 					</div>
-				</Card.Body>
-			</Card>
+				<Card.Body>
+					<Card.Title id="card-title">{title}</Card.Title>
+					<Card.Text id="card-location">
+								<span>{city}, {country}</span>		
+					</Card.Text>
+					<Card.Text id="card-text">
+								<span>{body}</span>
+							</Card.Text>
+					<Card.Text id="card-date">
+								<span>{createdAt}</span>
+							</Card.Text>
+								<div id='btn-container' className='d-flex justify-content-evenly'>
+									<Button variant="primary container-fluid" onClick={handleShow}>
+											{commentCount} Comments
+									</Button>
+									<Button className="like" variant="primary" onClick={handleIncrement}>
+										{likeCount} Likes
+									</Button>
+									<Button className="dislike" variant="primary" onClick={handleIncrement}>
+										{dislikeCount} Dislikes
+									</Button>
+								</div>
+							</Card.Body>
+						</Card>
 
-			<Modal show={show} onHide={handleClose}>
-        <Modal.Header className="bg-primary" closeButton>
-          <Modal.Title className='text-light'>Comments</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='bg-secondary'>
-					{comments 
-						? comments.map(comment => <Comment key={comment._id} comment={comment} />)
-						: <p>No Comments yet</p>}
-				</Modal.Body>
-        <Modal.Footer className='bg-primary'>
-          <Button variant="lighta" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-		</>
+						<Modal show={show} onHide={handleClose}>
+					<Modal.Header className="bg-primary" closeButton>
+					<Modal.Title className='text-light'>Comments</Modal.Title>
+					</Modal.Header>
+					<Modal.Body className='bg-secondary'>
+								{comments 
+									? comments.map(comment => <Comment key={comment._id} comment={comment} />)
+									: <p>No Comments yet</p>}
+							</Modal.Body>
+					<Modal.Footer className='bg-primary'>
+					<Button variant="lighta" onClick={handleClose}>
+						Close
+					</Button>
+					</Modal.Footer>
+				</Modal>
+			</>
 	)
 };
 

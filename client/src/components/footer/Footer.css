@@ -1,9 +1,15 @@
+#footer {
+    text-align: center;
+}
+
 #copyrights {
     font-size: 10pt;
     margin: 5px;
+    color: white;
 }
 
 #creators {
     font-size: 10pt;
     margin: 5px;
+    color: white;
 }

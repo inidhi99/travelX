@@ -1,0 +1,48 @@
+#signup {
+    font-size: 25pt;
+    color: white;
+    margin-top: 25px;
+}
+
+#formName {
+    font-weight: 400;
+    color: white;
+}
+
+#firstName, #lastName, #username, #email, #pwd {
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    padding-left: 8px;
+    color: black;
+}
+
+#btn {
+    margin: 25px;
+    border: none;
+    background-color:black;
+    color:  rgb(177, 228, 255);
+    font-weight: 400;
+    border-radius: 12px;
+}
+
+#btn:hover {
+    background-color: rgb(1, 75, 115);
+    color: white;
+    transition: .3s;
+    scale: 102%
+}
+
+#create-account-link {
+    color: rgb(214, 239, 253);
+    font-size: 13pt;
+    text-decoration: none;
+}
+
+#create-account-link:hover {
+    transition: .3s;
+    color: white;
+    font-size: 13pt;
+}
