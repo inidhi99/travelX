@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import './Post.css'
 import Modal from 'react-bootstrap/Modal';
 import Comment from '../comment/Comment.component';
+import { ADD_REACTION, ADD_COMMENT } from '../../utils/mutations';
+import { useMutation } from "@apollo/client";
 
 // Component for rendering individual posts
 const Post = ({ post }) => {
@@ -22,13 +24,19 @@ const Post = ({ post }) => {
 		reactions, 
 		createdAt 
 	} = post
+
 	
 	// local stateful variables
 	const [likeCount, setLikeCount] = useState(0);
 	const [dislikeCount, setDislikeCount] = useState(0);
+	const [likeClicked, setLikeClicked] = useState(false);
+	const [disikeClicked, setDisikeClicked] = useState(false);
 	const [commentCount, setCommentCount] = useState(0);
 	const [show, setShow] = useState(false);
-
+	
+	// use mutations
+	const [addReaction] = useMutation(ADD_REACTION);
+	const [addComment] = useMutation(ADD_COMMENT);
 	// sets the likeCount dislikeCount and commentCount variables on mount
 	useEffect(() => {
 		// get like count from length of filtered array
@@ -44,11 +52,26 @@ const Post = ({ post }) => {
 	// event handlers
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-	const handleIncrement = (e) => {
-		if (e.target.classList.contains("like")) {
-			console.log('like')
-		} else if (e.target.classList.contains("dislike")) {
-			console.log("dislike")
+	const handleIncrement = async (e) => {
+		if (e.target.classList.contains("like") && !likeClicked) {
+			setLikeClicked(true);
+			const mutationResponse = await addReaction({
+				variables: {
+					postId: _id,
+					reactionType: 'like',
+				}
+			});
+			setLikeCount(0);
+		} else if (e.target.classList.contains("dislike") && !disikeClicked) {
+			console.log('dislike')
+			setDisikeClicked(true);
+			const mutationResponse = await addReaction({
+				variables: {
+					postId: _id,
+					reactionType: 'dislike',
+				}
+			});
+			setDislikeCount(0);
 		}
 	}
 
