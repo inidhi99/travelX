@@ -3,6 +3,7 @@
 }
 
 .linkStyles {
+    text-decoration: none;
     display: inline-flex;
     justify-content: space-between;
     margin: 30px;
