@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from "react";
 import PostList from "../components/postList/PostList";
-import { useQuery } from "@apollo/client";
-import { useGlobalContext } from "../context/globalContext";
-import { UPDATE_POSTS } from "../context/actions";
-import { QUERY_POSTS } from "../utils/queries";
+import { useQuery } from '@apollo/client'
+import { useGlobalContext } from '../context/globalContext';
+import { QUERY_POSTS } from '../utils/queries';
 import SearchBox from "../components/SearchBox/search-box.component";
 
+// Page for rendering all posts and searching through them
 const Explore = () => {
   const [state, dispatch] = useGlobalContext();
-  const [searchField, setSearchField] = useState("");
+  // local stateful variables
+  const [searchField, setSearchField] = useState('');
   const [filteredPosts, setFilteredPosts] = useState([]);
 
+  // query gets all posts from Database
   const { loading, data } = useQuery(QUERY_POSTS);
 
+  // filters posts using the stateful variable tied to SearchBox component
   useEffect(() => {
     if (data) {
-      const newFilteredPosts = data.posts.filter((post) =>
-        post.city.toLocaleLowerCase().includes(searchField)
-      );
+      const newFilteredPosts = data.posts.filter(post => post.city.toLocaleLowerCase().includes(searchField));
 
-      setFilteredPosts(newFilteredPosts);
+      setFilteredPosts(newFilteredPosts)
     }
+
   }, [data, searchField]);
 
-  const onSearchChange = (e) => {
+  // event handler for SearhBox input element
+  const onSearchChange = e => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
