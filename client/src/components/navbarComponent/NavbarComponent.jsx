@@ -12,9 +12,9 @@ function NavbarComponent() {
   // const logout = () => setLoggedIn(false);
   return (
     <>
-      <Navbar>
-        <Container>
-          <Nav className="me-auto">
+      <Navbar id='navbarCont'>
+        <Container id='navCont'>
+          <Nav id='navBar' className="me-auto">
             {/* <Link className="linkStyles" to="./pages/postForm">Post</Link> */}
             <Link className="linkStyles" to="./me">
               Profile
