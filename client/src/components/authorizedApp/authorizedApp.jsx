@@ -2,7 +2,7 @@ import NavbarComponent from "../navbarComponent/NavbarComponent";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PostForm from "../../pages/PostForm";
+import PostForm from "../../pages/postForm";
 import Profile from "../../pages/Profile";
 import Explore from "../../pages/Explore";
 import LoginForm from "../../pages/LoginForm";
