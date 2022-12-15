@@ -194,7 +194,6 @@ export const QUERY_SINGLE_REACTION = gql`
 `;
 
 export const QUERY_ME = gql`
-
   query me {
     me {
       _id

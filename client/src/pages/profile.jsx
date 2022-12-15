@@ -25,6 +25,7 @@ const Profile = () => {
 
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.user || {};
+  console.log(profile);
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   // if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
@@ -51,14 +52,14 @@ const Profile = () => {
         {profile.email}
       </h2> */}
       <div className="profile-section">
-        <h2 id="followers">Followers</h2>
+        <h2 id="followers">{profile.followers.length} Followers</h2>
         {profile.followers.length &&
           profile.followers.map((follower, index) => {
             return <h3 key={index}>{follower.username}</h3>;
           })}
       </div>
       <div className="profile-section">
-        <h2 id="following">Following</h2>
+        <h2 id="following">{profile.following.length} Following</h2>
         <div>
           {profile.following.length &&
             profile.following.map((followee, index) => {

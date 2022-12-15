@@ -17,7 +17,6 @@ connection.once('open', async () => {
 
   await Promise.all(users.map(async user => await User.create(user)));
   const createdUsers = await User.find();
-  //   console.log(createdUsers)
 
   const postsToInsert = [];
   // go through each post datum
@@ -48,7 +47,7 @@ connection.once('open', async () => {
       let randomUserIndex;
       // ensure random user and the user behind the post are not the same
       do {
-        randomUserIndex = Math.floor(Math.random() * createdPosts.length);
+        randomUserIndex = Math.floor(Math.random() * createdUsers.length);
       } while (createdUsers[randomUserIndex]._id === randomPost.userId);
       const randomUser = createdUsers[randomUserIndex];
 
@@ -121,7 +120,6 @@ connection.once('open', async () => {
   }
 
   const updatedUsers = await User.find();
-  console.log(updatedUsers);
 
   // following
   for (let i = 0; i < updatedUsers.length; i++) {

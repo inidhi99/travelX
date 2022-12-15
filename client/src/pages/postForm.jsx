@@ -48,7 +48,7 @@ const PostForm = () => {
 
     try {
       const { data } = await addPost({
-        variables: { title, country, city, body },
+        variables: { title, country, city, body, image },
       });
       window.location.reload();
     } catch (err) {
@@ -146,10 +146,10 @@ const PostForm = () => {
           multiline
           rows={4}
         />
-      </FormControl>
       <Button variant="contained" size="small" onClick={handleFormSubmit}>
         Submit
       </Button>
+      </FormControl>
     </>
   );
 };

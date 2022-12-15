@@ -39,14 +39,16 @@ export const ADD_POST = gql`
     $title: String!
     $body: String!
     $city: String!
-    $country: String!
+    $country: String!,
+    $image: String
   ) {
-    addPost(title: $title, body: $body, city: $city, country: $country) {
+    addPost(title: $title, body: $body, city: $city, country: $country, image: $image) {
       _id
       title
       body
       city
       country
+      image
     }
   }
 `;
