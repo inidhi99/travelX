@@ -31,8 +31,7 @@ const Post = ({ post }) => {
 	// local stateful variables
 	const [likeCount, setLikeCount] = useState(0);
 	const [dislikeCount, setDislikeCount] = useState(0);
-	const [likeClicked, setLikeClicked] = useState(false);
-	const [disikeClicked, setDisikeClicked] = useState(false);
+	const [clicked, setClicked] = useState(false);
 	const [commentCount, setCommentCount] = useState(0);
 	const [show, setShow] = useState(false);
 	const [showForm, setShowForm] = useState(false);
@@ -62,9 +61,9 @@ const Post = ({ post }) => {
 		// only allow click event to fire if:
 		// like hasn't been clicked before 
 		// and user is logged in
-		if (e.target.classList.contains("like") && !likeClicked && Auth.loggedIn()) {
+		if (e.target.classList.contains("like") && !clicked && Auth.loggedIn()) {
 			// prevents multiple clicks
-			setLikeClicked(true);
+			setClicked(true);
 			// mutation creates a new like reaction associated with post
 			await addReaction({
 				variables: {
@@ -73,10 +72,10 @@ const Post = ({ post }) => {
 				}
 			});
 			setLikeCount(0);
-		} else if (e.target.classList.contains("dislike") && !disikeClicked && Auth.loggedIn()) {
+		} else if (e.target.classList.contains("dislike") && !clicked && Auth.loggedIn()) {
 			console.log('dislike')
 			// prevents multiple dislike clicks
-			setDisikeClicked(true);
+			setClicked(true);
 			// mutation creates a new dislike reaction associated with post
 			await addReaction({
 				variables: {
